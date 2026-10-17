@@ -1,0 +1,6 @@
+node_modules/
+dist/
+# Full-resolution originals (large); optimized copies live in src/assets
+raw/
+.DS_Store
+Thumbs.db

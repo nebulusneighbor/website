@@ -1,0 +1,95 @@
+// AI Music Resources page (ported from torinhopkins.com/ai-music-resources).
+
+export default [
+  {
+    heading: 'Generative AI and Other Tools',
+    items: [
+      { name: 'Suno', url: 'https://suno.ai/' },
+      { name: 'Songr', url: 'https://www.songr.ai/' },
+      { name: 'MusicGen (Hugging Face)', url: 'https://huggingface.co/spaces/facebook/MusicGen' },
+      { name: 'Google MusicFX DJ', url: 'https://labs.google/fx/tools/music-fx-dj' },
+      { name: 'Riffusion', url: 'https://www.riffusion.com/' },
+      { name: 'Beatoven', url: 'https://www.beatoven.ai/' },
+      { name: 'Loudly', url: 'https://www.loudly.com/' },
+      { name: 'Magenta', url: 'https://magenta.tensorflow.org/' },
+      { name: 'BandLab', url: 'https://www.bandlab.com/' },
+      { name: 'Boomy', url: 'https://boomy.com/' },
+      { name: 'Soundraw', url: 'https://soundraw.io/' },
+      { name: 'Moises.ai', url: 'https://moises.ai/' },
+      { name: 'ATLAS / Playbeat', url: 'https://algonaut.audio/' },
+      { name: 'MuseNet / Jukebox', url: 'https://openai.com/research/musenet' },
+      { name: 'Mubert', url: 'https://mubert.com/' },
+      { name: 'AIVA', url: 'https://www.aiva.ai/' },
+      { name: 'Splash Pro', url: 'https://pro.splashmusic.com/' },
+      { name: 'MusicLM / MusicFX', url: 'https://aitestkitchen.withgoogle.com/tools/music-fx' },
+    ],
+  },
+  {
+    heading: 'Code-Based Open Source',
+    items: [
+      { name: 'Google TensorFlow: Music generation tutorial (Jupyter)', url: 'https://www.tensorflow.org/tutorials/audio/music_generation' },
+      { name: 'Google Magenta Studio plugins for Ableton Live', url: 'https://magenta.tensorflow.org/studio/ableton-live/' },
+      { name: 'Magenta Colab notebook', url: 'https://colab.research.google.com/drive/1fxGqfg96RBUvGxZ1XXN07s3DthrKUl4-?usp=sharing' },
+      { name: 'Meta AudioCraft (code, papers)', url: 'https://github.com/facebookresearch/audiocraft' },
+      { name: 'Meta AudioCraft (online)', url: 'https://audiocraft.metademolab.com/' },
+      { name: 'Meta MusicGen docs (code)', url: 'https://github.com/facebookresearch/audiocraft/blob/main/docs/MUSICGEN.md' },
+    ],
+  },
+  {
+    heading: 'Symbolic Models',
+    items: [
+      { name: 'Folk-RNN, MusicVAE', url: 'https://ar5iv.labs.arxiv.org/html/2410.20515v1' },
+      { name: 'Music Transformer', url: 'https://magenta.tensorflow.org/music-transformer' },
+      { name: 'MuseGAN', url: 'https://github.com/salu133445/musegan' },
+      { name: 'DeepBach', url: 'https://samgoree.github.io/2017/01/29/DeepBach.html' },
+      { name: 'Coconet', url: 'https://dash.harvard.edu/server/api/core/bitstreams/62df48f2-5641-405f-ae6d-1fa9cdbfb925/content' },
+      { name: 'Museformer, SongMASS, MusicBERT (Microsoft Muzic)', url: 'https://github.com/microsoft/muzic' },
+      { name: 'PopMAG', url: 'https://www.slideshare.net/ivaderivader/popmag-pop-music-accompaniment-generation' },
+      { name: 'MuseCoco', url: 'https://arxiv.org/abs/2306.00110' },
+      { name: 'GETMusic', url: 'https://arxiv.org/abs/2305.10841' },
+    ],
+  },
+  {
+    heading: 'Audio Generation',
+    items: [
+      { name: 'WaveNet', url: 'https://arxiv.org/abs/1609.03499' },
+      { name: 'SampleRNN', url: 'https://sander.ai/2020/03/24/audio-generation.html' },
+      { name: 'GANSynth', url: 'https://magenta.tensorflow.org/gansynth' },
+      { name: 'DDSP', url: 'https://magenta.tensorflow.org/ddsp' },
+      { name: 'DiffWave', url: 'https://arxiv.org/abs/2009.09761' },
+      { name: 'AudioGen', url: 'https://arxiv.org/abs/2209.15352' },
+      { name: 'Awesome AI Music Generation (long list)', url: 'https://github.com/Curated-Awesome-Lists/awesome-ai-music-generation' },
+    ],
+  },
+  {
+    heading: 'Transcription',
+    items: [
+      { name: 'Onsets and Frames', url: 'https://magenta.tensorflow.org/onsets-frames' },
+      { name: 'MT3', url: 'https://openreview.net/forum?id=iMSjopcOn0p' },
+    ],
+  },
+  {
+    heading: 'Tagging & Classification',
+    items: [
+      { name: 'musicnn', url: 'https://www.upf.edu/web/mtg/blog/-/asset_publisher/pYSKGP3RLdWn/content/musicnn-an-open-source-deep-learning-based-music-tagger' },
+      { name: 'PANNs', url: 'https://arxiv.org/abs/1912.10211' },
+      { name: 'Tagging Transformer', url: 'https://mac.kaist.ac.kr/~juhan/gct634/Slides/KAIST_May_20_2024_Scalable_Music_Representation_Learning.pdf' },
+      { name: 'CLAP', url: 'https://medium.com/axinc-ai/clap-feature-extraction-model-for-searching-audio-from-text-dcfd4c93756e' },
+    ],
+  },
+  {
+    heading: 'Source Separation',
+    items: [
+      { name: 'Spleeter', url: 'https://www.theoj.org/joss-papers/joss.02154/10.21105.joss.02154.pdf' },
+      { name: 'Open-Unmix', url: 'https://sigsep.github.io/open-unmix/' },
+      { name: 'Demucs', url: 'https://github.com/facebookresearch/demucs' },
+    ],
+  },
+  {
+    heading: 'Singing Synthesis',
+    items: [
+      { name: 'HiFiSinger', url: 'https://arxiv.org/abs/2009.01776' },
+      { name: 'DiffSinger', url: 'https://arxiv.org/abs/2105.02446' },
+    ],
+  },
+];
