@@ -12,6 +12,7 @@ import sharp from 'sharp';
 import site from '../content/site.js';
 import publications from '../content/publications.js';
 import { projects, performances, tags } from '../content/projects.js';
+import details from '../content/project-details.js';
 import resources from '../content/resources.js';
 import * as cv from '../content/cv.js';
 import { brand } from './icons.mjs';
@@ -31,7 +32,18 @@ const abs = (p) => SITE_URL + p;
 const pubById = Object.fromEntries(publications.map((p) => [p.id, p]));
 const hasPage = (p) => Boolean(p.abstract);
 const pubPath = (p) => `/publications/${p.id}/`;
+const projectPath = (pr) => `/research/${pr.slug}/`;
+const projectBySlug = Object.fromEntries(projects.map((pr) => [pr.slug, pr]));
 const isMe = (name) => /Hopkins$/.test(name);
+
+// All publications for a project: the card's `pub` plus any listed in project-details.js
+const projectPubs = (pr) => [...new Set([pr.pub, ...(details[pr.slug]?.pubs || [])].filter(Boolean))].map((id) => {
+  if (!pubById[id]) throw new Error(`Unknown publication id "${id}" in project "${pr.slug}"`);
+  return pubById[id];
+});
+// Reverse lookup: publication id → projects that cite it (for "Project page" links on paper pages)
+const projectsByPub = {};
+for (const pr of projects) for (const p of projectPubs(pr)) (projectsByPub[p.id] ||= []).push(pr);
 
 const ui = {
   file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/>',
@@ -45,6 +57,7 @@ const ui = {
   code: '<path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/>',
   copy: '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+  play: '<circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/>',
 };
 const icon = (name) =>
   brand[name]
@@ -53,9 +66,10 @@ const icon = (name) =>
 
 // Image dimensions, so the browser can reserve space (no layout shift).
 const imgDims = {};
-for (const f of await readdir('src/assets/img')) {
+for (const f of await readdir('src/assets/img', { recursive: true })) {
+  if (!/\.(webp|jpe?g|png)$/i.test(f)) continue;
   const m = await sharp(path.join('src/assets/img', f)).metadata();
-  imgDims[f] = [m.width, m.height];
+  imgDims[f.split(path.sep).join('/')] = [m.width, m.height];
 }
 const img = (file, alt, { cls = '', eager = false, sizes = '' } = {}) => {
   const [w, h] = imgDims[file] || [];
@@ -264,33 +278,151 @@ function projectCard(pr) {
   if (pr.pub && !p) throw new Error(`Unknown publication id "${pr.pub}" in project "${pr.title}"`);
   const links = [...(p ? pubLinks(p) : []), ...(pr.links || []).map((l) => ({ ...l, href: l.url, icon: l.label === 'Code' ? 'code' : 'external', ext: true }))];
   const meta = p
-    ? `${esc(p.venueShort || p.venue || '')}${p.status && p.status !== 'published' ? ` · ${STATUS[p.status]}` : p.venueShort?.match(/\d{4}/) ? '' : ` · ${p.year}`}`
+    ? [
+        p.venueShort || p.venue,
+        p.status && p.status !== 'published' ? STATUS[p.status] : p.venueShort?.match(/\d{4}/) ? '' : p.year,
+      ].filter(Boolean).map(esc).join(' · ')
     : '';
   const media = pr.image
     ? img(pr.image, pr.title, { sizes: '(max-width: 700px) 100vw, 360px' })
     : `<div class="card-placeholder" aria-hidden="true"><span>${esc(pr.title.split(' ').slice(0, 2).map((w) => w[0]).join(''))}</span></div>`;
+  const href = u(projectPath(pr));
+  // The whole image and title open the project page; chips keep direct paper/PDF access
   return `<article class="card" data-tags="${(pr.tags || []).join(' ')}">
-  <div class="card-media">${media}</div>
+  <a class="card-media" href="${href}" tabindex="-1" aria-hidden="true">${media}</a>
   <div class="card-body">
     ${meta ? `<p class="card-meta">${meta}</p>` : ''}
-    <h3>${p && hasPage(p) ? `<a href="${u(pubPath(p))}">${esc(pr.title)}</a>` : esc(pr.title)}</h3>
+    <h3><a href="${href}">${esc(pr.title)}</a></h3>
     <p>${esc(pr.description)}</p>
+    ${linkChips([{ label: 'Project', href, icon: 'arrow' }, ...links.filter((l) => l.label !== 'Abstract')])}
+  </div>
+</article>`;
+}
+
+const videoLink = (url) => ({ label: 'Watch video', href: url, icon: 'play', ext: true });
+
+function performanceCard(pf) {
+  const p = pf.pub ? pubById[pf.pub] : null;
+  const href = pf.slug ? u(projectPath(projectBySlug[pf.slug])) : null;
+  const links = [
+    ...(href ? [{ label: 'Project', href, icon: 'arrow' }] : []),
+    ...(pf.video ? [videoLink(pf.video)] : []),
+    ...(p ? pubLinks(p).filter((l) => l.label !== 'Abstract') : []),
+  ];
+  return `<article class="card card-wide">
+  ${pf.image ? `<div class="card-media">${img(pf.image, pf.title, { sizes: '(max-width: 700px) 100vw, 480px' })}</div>` : ''}
+  <div class="card-body">
+    <p class="card-meta">${pf.year} · ${esc(pf.venue)}</p>
+    <h3>${href ? `<a href="${href}">${esc(pf.title)}</a>` : esc(pf.title)}</h3>
+    <p>${esc(pf.description)}</p>
     ${linkChips(links)}
   </div>
 </article>`;
 }
 
-function performanceCard(pf) {
-  const p = pf.pub ? pubById[pf.pub] : null;
-  return `<article class="card card-wide">
-  ${pf.image ? `<div class="card-media">${img(pf.image, pf.title, { sizes: '(max-width: 700px) 100vw, 480px' })}</div>` : ''}
-  <div class="card-body">
-    <p class="card-meta">${pf.year} · ${esc(pf.venue)}</p>
-    <h3>${esc(pf.title)}</h3>
-    <p>${esc(pf.description)}</p>
-    ${p ? linkChips(pubLinks(p)) : ''}
+// ------------------------------------------------------------------ project pages
+
+function videoEmbed(v) {
+  if (v.youtube) {
+    // Lightweight embed: a thumbnail that swaps in the (privacy-enhanced) player on click
+    return `<figure class="video">
+  <a class="video-lite" href="https://www.youtube.com/watch?v=${v.youtube}" data-youtube="${v.youtube}" target="_blank" rel="noopener" aria-label="Play: ${esc(v.title)}">
+    <img src="https://i.ytimg.com/vi/${v.youtube}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+    <span class="video-play">${icon('play')}</span>
+  </a>
+  <figcaption>${esc(v.title)}</figcaption>
+</figure>`;
+  }
+  if (v.vimeo) return `<p><a class="btn" href="https://vimeo.com/${v.vimeo}" target="_blank" rel="noopener">${icon('play')}${esc(v.title)}</a></p>`;
+  return '';
+}
+
+function projectPage(pr) {
+  const d = details[pr.slug] || {};
+  const pubs = projectPubs(pr);
+  const lead = pubs.find((p) => !p.status || p.status === 'published' || p.status === 'accepted') || pubs[0];
+  const collaborators = [...new Set(pubs.flatMap((p) => p.authors).filter((a) => a !== 'et al.' && !isMe(a)))];
+  const related = (d.related || []).map((s) => projectBySlug[s]).filter(Boolean);
+  const links = [
+    ...(lead ? pubLinks(lead).filter((l) => l.label !== 'Abstract') : []),
+    ...(pr.links || []).map((l) => ({ ...l, href: l.url, icon: l.label === 'Code' ? 'code' : 'external', ext: true })),
+    ...(d.links || []).map((l) => ({ ...l, href: l.url, icon: 'external', ext: true })),
+  ];
+  const facts = [
+    d.period && ['When', esc(d.period)],
+    d.context && ['Context', esc(d.context)],
+    lead && ['Venue', `${esc(lead.venueShort || lead.venue)}${lead.status && lead.status !== 'published' ? ` (${STATUS[lead.status]})` : ''}`],
+    collaborators.length && ['Collaborators', esc(collaborators.join(', '))],
+    pr.tags?.length && ['Themes', pr.tags.map((t) => esc(tags[t])).join(', ')],
+  ].filter(Boolean);
+  const section = (s) => `<section class="prose-section">
+      <h2>${esc(s.heading)}</h2>
+      ${(s.paragraphs || []).map((t) => `<p>${esc(t)}</p>`).join('\n      ')}
+      ${s.list ? `<ul class="bullets">${s.list.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+    </section>`;
+  const gallery = (d.gallery || []).filter((g) => {
+    if (!imgDims[g.file]) throw new Error(`Missing image ${g.file} for project ${pr.slug}`);
+    return true;
+  });
+  const hero = gallery[0]?.file || pr.image;
+
+  const body = `
+<article class="project">
+  <header class="page-header">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="${u('/')}">Home</a> / <a href="${u('/research/')}">Research</a></nav>
+      <p class="eyebrow">${(pr.tags || []).map((t) => esc(tags[t])).join(' · ')}</p>
+      <h1>${esc(pr.title)}</h1>
+      <p class="lede">${esc(pr.description)}</p>
+      ${links.length ? `<div class="actions">${links.map((l, i) => `<a class="btn${i === 0 ? ' btn-primary' : ''}" href="${esc(l.href)}"${l.ext ? ' target="_blank" rel="noopener"' : ''}>${icon(l.icon)}${esc(l.label === 'PDF' ? 'Read the paper (PDF)' : l.label)}</a>`).join('')}</div>` : ''}
+    </div>
+  </header>
+  <div class="section section-tight">
+    <div class="wrap project-layout">
+      <div class="project-main">
+        ${hero ? `<figure class="project-hero">${img(hero, gallery[0]?.caption || pr.title, { eager: true })}${gallery[0]?.caption ? `<figcaption>${esc(gallery[0].caption)}</figcaption>` : ''}</figure>` : ''}
+        ${d.summary ? `<p class="project-summary">${esc(d.summary)}</p>` : ''}
+        ${(d.sections || []).map(section).join('\n')}
+        ${d.findings?.length ? `<section class="prose-section findings"><h2>${pr.tags?.includes('instruments') || !lead ? 'Highlights' : 'Key findings'}</h2><ul class="bullets">${d.findings.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></section>` : ''}
+        ${d.video ? `<section class="prose-section"><h2>Video</h2>${videoEmbed(d.video)}</section>` : ''}
+        ${gallery.length > 1 ? `<section class="prose-section"><h2>Gallery</h2><div class="gallery">${gallery.slice(1).map((g) => `<figure>${img(g.file, g.caption, { sizes: '(max-width: 700px) 100vw, 420px' })}<figcaption>${esc(g.caption)}</figcaption></figure>`).join('')}</div></section>` : ''}
+        ${pubs.length ? `<section class="prose-section"><h2>Publications</h2><ol class="pubs">${pubs.map(pubItem).join('\n')}</ol></section>` : ''}
+      </div>
+      <aside class="project-aside">
+        ${facts.length ? `<dl class="facts">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : ''}
+        ${d.tools?.length ? `<h3>Tools &amp; methods</h3><ul class="tags tags-sm">${d.tools.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+        ${d.code?.length ? `<h3>Code</h3><ul class="plain">${d.code.map((c) => `<li><a href="${esc(c.url)}" target="_blank" rel="noopener">${icon('github')} ${esc(c.label)}</a></li>`).join('')}</ul>` : ''}
+      </aside>
+    </div>
   </div>
+  ${related.length ? `<section class="section section-alt" aria-labelledby="related-h"><div class="wrap"><h2 id="related-h">Related projects</h2><div class="grid">${related.map(projectCard).join('\n')}</div></div></section>` : ''}
 </article>`;
+
+  const desc = (d.summary || pr.description).length > 158
+    ? (d.summary || pr.description).slice(0, (d.summary || pr.description).lastIndexOf(' ', 155)) + '…'
+    : d.summary || pr.description;
+  const work = {
+    '@type': 'CreativeWork',
+    '@id': abs(projectPath(pr)) + '#project',
+    name: pr.title,
+    headline: pr.title,
+    description: d.summary || pr.description,
+    url: abs(projectPath(pr)),
+    creator: { '@id': abs('/#person') },
+    contributor: collaborators.map((name) => ({ '@type': 'Person', name })),
+    keywords: [...(pr.tags || []).map((t) => tags[t]), ...(d.tools || [])].join(', '),
+    ...(hero ? { image: abs('/assets/img/' + hero) } : {}),
+    ...(pubs.length ? { citation: pubs.map((p) => ({ '@type': 'ScholarlyArticle', name: p.title, ...(p.doi ? { sameAs: `https://doi.org/${p.doi}` } : {}) })) } : {}),
+  };
+  return layout({
+    title: pr.title,
+    description: desc,
+    path: projectPath(pr),
+    body,
+    ogType: 'article',
+    image: hero ? '/assets/img/' + hero : site.ogImage,
+    jsonld: [breadcrumbLd([['Research', '/research/'], [pr.title, projectPath(pr)]]), work, personLd],
+  });
 }
 
 const filterBar = (entries, label) =>
@@ -413,7 +545,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
 {
   const used = new Set(projects.flatMap((p) => p.tags || []));
   const body = `
-${pageHeader('Research', 'Scientific, technical, and creative research spanning AI, extended reality, neuroscience, and music. Filter by theme to explore.', 'Publication and Scientific Works')}
+${pageHeader('Research', 'Scientific, technical, and creative research spanning AI, extended reality, neuroscience, and music. Filter by theme, and open any project for the full story: motivation, methods, findings, media, and papers.', 'Publication and Scientific Works')}
 <section class="section section-tight">
   <div class="wrap">
     ${filterBar(Object.entries(tags).filter(([k]) => used.has(k)), 'Filter projects by theme')}
@@ -425,8 +557,16 @@ ${pageHeader('Research', 'Scientific, technical, and creative research spanning 
     description: `Research projects by ${site.name}: AI-driven virtual musicians, brain-computer interfaces, networked music in AR/VR, music cognition, and more.`,
     path: '/research/',
     body,
-    jsonld: [breadcrumbLd([['Research', '/research/']]), personLd],
+    jsonld: [
+      breadcrumbLd([['Research', '/research/']]),
+      { '@type': 'ItemList', name: 'Research projects', itemListElement: projects.map((pr, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(projectPath(pr)), name: pr.title })) },
+      personLd,
+    ],
   }), { priority: '0.9' });
+
+  for (const pr of projects) {
+    addPage(projectPath(pr), projectPage(pr), { priority: details[pr.slug]?.sections || details[pr.slug]?.findings ? '0.8' : '0.5' });
+  }
 }
 
 // Publications list --------------------------------------------------
@@ -535,7 +675,7 @@ for (const p of publications.filter(hasPage)) {
         <button class="btn btn-small copy-btn" data-copy="#bib-${p.id}">${icon('copy')}<span>Copy BibTeX</span></button>
         <pre id="bib-${p.id}"><code>${esc(bibtex(p))}</code></pre>
       </div>
-      <p><a class="text-link" href="${u('/publications/')}">All publications${icon('arrow')}</a></p>
+      <p class="actions">${(projectsByPub[p.id] || []).map((pr) => `<a class="text-link" href="${u(projectPath(pr))}">Project: ${esc(pr.title)}${icon('arrow')}</a>`).join('')}<a class="text-link" href="${u('/publications/')}">All publications${icon('arrow')}</a></p>
     </div>
   </div>
 </article>`;

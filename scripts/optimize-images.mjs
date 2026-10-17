@@ -8,11 +8,17 @@ const SRC = 'raw/img';
 const OUT = 'src/assets/img';
 const MAX_WIDTH = 1200;
 
-await mkdir(OUT, { recursive: true });
+await mkdir(path.join(OUT, 'projects'), { recursive: true });
 
-for (const file of await readdir(SRC)) {
+// Top-level images plus project-page figures in raw/img/projects
+const files = [
+  ...(await readdir(SRC)),
+  ...(await readdir(path.join(SRC, 'projects'))).map((f) => `projects/${f}`),
+];
+
+for (const file of files) {
   if (!/\.(png|jpe?g|webp)$/i.test(file)) continue;
-  const name = path.parse(file).name;
+  const name = file.replace(/\.[^.]+$/, '');
   const dest = path.join(OUT, `${name}.webp`);
 
   const src = path.join(SRC, file);

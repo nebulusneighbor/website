@@ -1,4 +1,5 @@
 // Research projects and creative works shown as cards on the Research page.
+// `slug` is the URL of the project page (/research/<slug>/); long-form content lives in project-details.js.
 // `pub` links a card to an entry in publications.js (adds its PDF/DOI/paper-page links).
 // `tags` drive the filter buttons. `featured: true` puts the card on the home page.
 
@@ -13,6 +14,7 @@ export const tags = {
 
 export const projects = [
   {
+    slug: 'crowdforge',
     title: 'CrowdForge',
     description: 'Effects of audio and visual audience participation modalities on agency, collaboration, and engagement in AI-mediated mixed reality performances.',
     image: 'crowdforge.webp',
@@ -21,6 +23,7 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'embodied-symbol-systems',
     title: 'Embodied Symbol Systems',
     description: 'How visual features shape the symbol-perception-action loop in musical notation.',
     image: 'embodied-symbol-systems.webp',
@@ -28,6 +31,7 @@ export const projects = [
     tags: ['neuro', 'health'],
   },
   {
+    slug: 'stroke-songwriting',
     title: 'AI-Assisted Songwriting for Stroke Rehabilitation',
     description: 'Co-designing technologies with multiple stakeholders for stroke rehabilitation.',
     image: 'stroke-songwriting.webp',
@@ -35,6 +39,7 @@ export const projects = [
     tags: ['ai', 'health'],
   },
   {
+    slug: 'automatic-arrangement',
     title: 'Automatic Arrangement',
     description: 'A unified framework and neural network architecture that enables automatic multitrack music arrangement.',
     image: 'neurips-arrangement.webp',
@@ -43,6 +48,7 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'mr-daw',
     title: 'MR-DAW',
     description: 'Towards collaborative digital audio workstations in mixed reality: designing collaborative music interaction for networked XR environments.',
     image: 'mrdaw.webp',
@@ -51,6 +57,7 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'livepoem',
     title: 'LivePoem',
     description: 'Improving the learning experience of classical Chinese poetry with AI-generated musical storyboards.',
     image: 'livepoem.webp',
@@ -59,11 +66,13 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'learning-to-read-music',
     title: 'How Do We Learn to Read Music?',
     description: 'Using psychological methods and eye-tracking to investigate the effectiveness of several popular approaches to music literacy.',
     tags: ['neuro', 'health'],
   },
   {
+    slug: 'networking-ai-virtual-musicians',
     title: 'Networking AI-Driven Virtual Musicians in XR',
     description: 'Designing AI-driven music interaction for networked VR/AR/MR environments.',
     image: 'networking-aivm.webp',
@@ -71,6 +80,7 @@ export const projects = [
     tags: ['ai', 'xr'],
   },
   {
+    slug: 'brain-jam',
     title: 'BrAIn Jam',
     description: 'Controlling an AI-driven virtual drummer using neural signals (fNIRS) in real time, with a comparison of machine learning models for interpreting neural data.',
     image: 'brainjam.webp',
@@ -79,6 +89,7 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'stringesthesia',
     title: 'Stringesthesia',
     description: 'Dynamically shifting musical agency between audience and performer based on the performer’s neurally measured trust in an improvised performance.',
     image: 'stringesthesia.webp',
@@ -87,6 +98,7 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'virtual-ai-jam',
     title: 'Virtual AI Jam',
     description: 'AI-driven, animated virtual musicians for human-in-the-loop musical improvisation.',
     image: 'virtual-ai-jam.webp',
@@ -94,6 +106,7 @@ export const projects = [
     tags: ['ai'],
   },
   {
+    slug: 'xr-jam',
     title: 'XR Jam',
     description: 'Design considerations for networked jamming with AI-driven musicians and remote players in extended reality.',
     image: 'xr-jam.webp',
@@ -101,12 +114,14 @@ export const projects = [
     tags: ['ai', 'xr'],
   },
   {
+    slug: 'jamming-with-jimmy-page',
     title: 'Towards Jamming with Jimmy Page',
     description: 'Investigating neural network architectures for musical interaction, with Ericsson Research.',
     image: 'jimmy-page.webp',
     tags: ['ai'],
   },
   {
+    slug: 'computer-supported-musical-improvisation',
     title: 'Computer-Supported Musical Improvisation',
     description: 'Doctoral research framework presented at the NIME Doctoral Consortium.',
     image: 'csmi-nime.webp',
@@ -114,6 +129,7 @@ export const projects = [
     tags: ['ai', 'xr', 'neuro'],
   },
   {
+    slug: 'limited-field-of-view',
     title: 'Limited Field of View in AR',
     description: 'Exploring how the limitations of AR displays affect musical collaboration with holographic musicians.',
     image: 'fov.webp',
@@ -121,6 +137,7 @@ export const projects = [
     tags: ['xr'],
   },
   {
+    slug: 'ar-drum-circle',
     title: 'AR Drum Circle',
     description: 'Networked musical interaction and real-time collaboration between remote drummers in augmented reality.',
     image: 'ardc.webp',
@@ -128,6 +145,7 @@ export const projects = [
     tags: ['xr'],
   },
   {
+    slug: 'how-late-is-too-late',
     title: 'How Late Is Too Late?',
     description: 'Investigating the interaction between visual and audio perceptual delays in networked music.',
     image: 'how-late.webp',
@@ -135,6 +153,7 @@ export const projects = [
     tags: ['xr', 'neuro'],
   },
   {
+    slug: 'rhythmic-conversations',
     title: 'Rhythmic Conversations',
     description: 'Jamming with audience-controlled, improvising AI-driven drummers.',
     image: 'rhythmic-conversations.webp',
@@ -142,12 +161,14 @@ export const projects = [
     tags: ['ai'],
   },
   {
+    slug: 'holojam',
     title: 'HoloJam',
     description: 'Exploring jamming with AI-driven hologram drummers.',
     image: 'holojam.webp',
     tags: ['ai', 'xr'],
   },
   {
+    slug: 'jam-station',
     title: 'The Jam Station',
     description: 'Algorithmically detecting collaboration in a collaborative musical instrument.',
     image: 'jam-station.webp',
@@ -155,6 +176,7 @@ export const projects = [
     tags: ['hci', 'instruments'],
   },
   {
+    slug: 'jam-tabs',
     title: 'Jam Tabs',
     description: 'Investigating alternative, color-based music notation and tools for novice improvisation.',
     image: 'jam-tabs.webp',
@@ -162,12 +184,14 @@ export const projects = [
     tags: ['hci', 'health'],
   },
   {
+    slug: 'notation-plugins',
     title: 'Custom Plugins for Music Notation Software',
     description: 'Plugins that manipulate notation software to aid reading and pedagogical techniques in music.',
     image: 'notation-plugins.webp',
     tags: ['hci', 'health'],
   },
   {
+    slug: 'musical-scales',
     title: 'How Many Musical Scales Are There?',
     description: 'Music combinatorics: isolating the number of unique scale rotations, building on Miller’s and others’ work.',
     image: 'scales.webp',
@@ -175,30 +199,35 @@ export const projects = [
     tags: ['instruments'],
   },
   {
+    slug: 'hacking-daws',
     title: 'Hacking DAWs: Custom Functions in Ableton',
     description: 'Custom Ableton functions connected to Python and other programs, used in teaching and performance.',
     image: 'ableton.webp',
     tags: ['hci', 'instruments'],
   },
   {
+    slug: 'modular-guitar',
     title: 'Modular Guitar',
     description: 'A modular, reconfigurable guitar for play and performance.',
     image: 'modular-guitar.webp',
     tags: ['instruments'],
   },
   {
+    slug: 'string-sheath',
     title: 'String Sheath',
     description: 'Amplifying the sound of any string through braided conductive thread.',
     image: 'string-sheath.webp',
     tags: ['instruments'],
   },
   {
+    slug: 'tangible-musical-objects',
     title: 'Tangible Musical Objects',
     description: 'Investigating the interactions of expert and novice musicians with tangible musical objects.',
     image: 'tmo.webp',
     tags: ['hci', 'instruments'],
   },
   {
+    slug: 'smart-cities',
     title: 'User Interfaces in Smart Cities',
     description: 'Book chapter on the future of user interfaces in smart cities.',
     image: 'smart-cities.webp',
@@ -206,18 +235,21 @@ export const projects = [
     tags: ['hci'],
   },
   {
+    slug: 'gtar-apps',
     title: 'Building Applications for the gTar',
     description: 'Designed and built applications for the gTar smart guitar.',
     image: 'gtar.webp',
     tags: ['instruments', 'health'],
   },
   {
+    slug: 'soljamm-workshops',
     title: 'SolJAMM Workshops',
     description: 'Designed and led technology-enhanced jamming workshops for over 50 high school students.',
     image: 'soljamm.webp',
     tags: ['health'],
   },
   {
+    slug: 'linguist-vs-machine',
     title: 'Linguist vs. Machine',
     description: 'Comparing machine learning algorithms with trained linguists at uncovering morphological grammar rules.',
     image: 'linguist-machine.webp',
@@ -225,6 +257,7 @@ export const projects = [
     tags: ['ai'],
   },
   {
+    slug: 'foxp3',
     title: 'FOXP3: A Critical Role in Fertility in Mice',
     description: 'Investigating the role of the transcription factor Foxp3 in mice.',
     image: 'foxp3.webp',
@@ -232,6 +265,7 @@ export const projects = [
     tags: ['neuro'],
   },
   {
+    slug: 'foxd1',
     title: 'Foxd1 Is Necessary for Pituitary LH Expression',
     description: 'Investigating the role of the transcription factor Foxd1 in mice.',
     image: 'foxd1.webp',
@@ -239,6 +273,7 @@ export const projects = [
     tags: ['neuro'],
   },
   {
+    slug: 'hippocampal-connectivity-motor-learning',
     title: 'Hippocampal Connectivity: Laterality and Motor Learning',
     description: 'fMRI study investigating mechanisms of motor control and learning (data analyst).',
     image: 'hippocampal-1.webp',
@@ -246,6 +281,7 @@ export const projects = [
     tags: ['neuro'],
   },
   {
+    slug: 'music-rehearsal-perceptual-span',
     title: 'Music Rehearsal Increases the Perceptual Span for Notation',
     description: 'Investigating the role of rehearsal in perceptual and visual span (data analyst).',
     image: 'music-rehearsal.webp',
@@ -253,6 +289,7 @@ export const projects = [
     tags: ['neuro'],
   },
   {
+    slug: 'hippocampal-connectivity-selectivity',
     title: 'Hippocampal Connectivity II: Spatial and Temporal Selectivity',
     description: 'Investigating the role of the hippocampus in sensorimotor control (data analyst).',
     image: 'hippocampal-2.webp',
@@ -264,6 +301,8 @@ export const projects = [
 export const performances = [
   {
     title: 'CrowdForge',
+    slug: 'crowdforge',
+    video: 'https://youtu.be/nbGJMI_i9CU',
     year: 2026,
     description: 'The audience chooses the parameters for a generated audio-visual experience in mixed reality.',
     venue: 'IEEE Internet of Sounds, Cannes, France; CU Boulder',
@@ -271,12 +310,16 @@ export const performances = [
   },
   {
     title: 'Quantum Music',
+    video: 'https://youtu.be/5RfwSpG52p0',
+    image: 'projects/quantum-music-live.webp',
     year: 2026,
     description: "Music generated by quantum circuits built with IBM's Qiskit and performed live through Ableton.",
     venue: 'Northeastern University',
   },
   {
     title: 'Rhythmic Conversations',
+    slug: 'rhythmic-conversations',
+    video: 'https://youtu.be/y97t7pM85Lw',
     year: 2023,
     description: 'Audience members play a drum beat and the AI reflects a similar beat back. Meanwhile I improvise on guitar to the resulting music.',
     venue: 'Brighton, United Kingdom; CU Boulder',
@@ -284,6 +327,8 @@ export const performances = [
   },
   {
     title: 'Stringesthesia',
+    slug: 'stringesthesia',
+    video: 'https://youtu.be/J8pW7RkiABg',
     year: 2022,
     description: 'A neurofeedback guitar performance that dynamically shifts musical agency between audience and performer based on trust.',
     venue: 'ATLAS Black Box Theater, Boulder',
@@ -292,6 +337,7 @@ export const performances = [
   },
   {
     title: "Galaga's Ghost",
+    video: 'https://vimeo.com/641639262',
     year: 2021,
     description: "A 6-player musical arcade machine, and a dance party waiting to happen. Created with Boulder Experiments in Art and Technology (B.E.A.T.) and the Museum of Boulder for Convivial Machines, in collaboration with Sean Winters, Chase Stewart, Spencer Arrasmith, Eric Atencio, and Marc Seyfirth.",
     venue: 'Museum of Boulder',
@@ -299,6 +345,8 @@ export const performances = [
   },
   {
     title: 'The Jam Station',
+    slug: 'jam-station',
+    video: 'https://youtu.be/dzYpDfZknmI',
     year: 2020,
     description: 'Interactive collaborative musical instrument installation.',
     venue: 'MakerMade Exhibition, Boulder',

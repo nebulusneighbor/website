@@ -20,12 +20,16 @@ export default [
     type: 'conference',
     status: 'accepted',
     year: 2026,
-    authors: [ME, 'et al.'],
+    authors: [ME, 'Shih-Yu Ma', 'Zander Trafton-Hancock', 'Ellen Yi-Luen Do', 'Luca Turchet'],
     title: 'CrowdForge: Effects of Audio and Visual Audience Participation Modalities on Agency, Collaboration, and Engagement in AI-Mediated MR Performances',
     venue: 'IEEE International Symposium on the Internet of Sounds (IS2)',
     venueShort: 'IEEE IS2 2026',
     location: 'Cannes, France',
     image: 'crowdforge.webp',
+
+    abstract: 'Technology-mediated audience participation (TMAP) enables audiences to influence live performances, yet balancing interaction with meaningful agency remains challenging. While AI-generated music and MR enable new forms of audio and visual audience participation, little is known about how these participation modalities influence audience experiences during live musical performance. In particular, it remains unclear how they shape perceived agency, collaboration, and engagement, and how they complement one another within TMAP systems. We present CrowdForge, an AI- and MR-mediated paradigm where audiences collectively control generative music and virtual environments during a live performance featuring a guitarist and DJ. Through a mixed-methods concert study evaluating three interaction conditions (audio, visual, and combined audio-visual), we demonstrate that observability is the primary driver of audience agency. While visual interaction provided easily observable feedback, audio parameters offered macro-structural control over the music. Audiences tended to use the control enabled by AI audio generation to test musical boundaries, introducing a productive adversarial tension between the crowd and the musicians. This dynamic pushed creative limits, deepened engagement, and generated moments of musical coherence when performers successfully resolved audience-induced challenges. We argue future TMAP systems should prioritize human-centered, highly observable interactions to build agency, while combining the expressiveness of music with the clarity of visual feedback.',
+
+    keywords: ['technology-mediated audience participation', 'mixed reality', 'Musical Metaverse', 'generative AI'],
   },
   {
     id: 'embodied-symbol-systems',
@@ -77,6 +81,10 @@ export default [
     abstract:
       'We present a unified framework for automatic multitrack music arrangement that enables a single pre-trained symbolic music model to handle diverse arrangement scenarios, including reinterpretation, simplification, and additive generation. At its core is a segment-level reconstruction objective operating on token-level disentangled content and style, allowing for flexible any-to-any instrumentation transformations at inference time. To support track-wise modeling, we introduce REMI-z, a structured tokenization scheme for multitrack symbolic music that enhances modeling efficiency and effectiveness for both arrangement tasks and unconditional generation. Our method outperforms task-specific state-of-the-art models on representative tasks in different arrangement scenarios—band arrangement, piano reduction, and drum arrangement, in both objective metrics and perceptual evaluations. Taken together, our framework demonstrates strong generality and suggests broader applicability in symbolic music-to-music transformation.',
     keywords: ['symbolic music', 'music arrangement', 'generative models', 'tokenization'],
+
+    url: 'https://proceedings.neurips.cc/paper_files/paper/2025/hash/15a5d4408b2bb41b9f923d724bb943f3-Abstract-Conference.html',
+
+    urlLabel: 'NeurIPS proceedings',
   },
   {
     id: 'livepoem',
@@ -129,6 +137,10 @@ export default [
     abstract:
       'Digital Audio Workstations (DAWs) are central to modern music production but often encumber the musician’s workflow, tethering them to a desk and hindering natural interaction with their instrument. Furthermore, effective remote collaboration remains a significant challenge, with existing solutions hampered by network latency and asynchronous file sharing. This paper investigates the potential of Mixed Reality (MR) to overcome these barriers, creating an intuitive environment for real-time, remote musical collaboration. We employ qualitative and speculative design techniques to better understand: 1) how players currently use DAWs, and 2) to imagine a speculative future of collaborative MR-DAWs. To facilitate this discussion, we developed and evaluated the usability of a design probe, MR-DAW: an MR system enabling multiple, geographically dispersed users to control a single, shared DAW instance while moving freely in their local spaces. Our networked system enables each remote musician to use a physical foot pedal for collaborative looping, merging a familiar, hands-free interaction with a shared virtual session. Based on interviews and system evaluations with 20 musicians, we analyze current practices, report on the user experience with our MR system, and speculate on the future of musical collaboration in MR. Our results highlight the affordances of MR for unencumbered musical interaction and provide a speculative outlook on the future of remote collaborative DAWs in the Musical Metaverse.',
     keywords: ['Musical Metaverse', 'mixed reality', 'digital audio workstation', 'networked music'],
+
+    doi: '10.1109/IS264627.2025.11284566',
+
+    pages: '1–10',
   },
   {
     id: 'limited-fov-musical-collaboration',
@@ -144,15 +156,23 @@ export default [
     abstract:
       'During musical collaboration, visual cues are essential for communication between musicians. Extended Reality (XR) applications, often used with head-mounted displays like Augmented Reality (AR) glasses, can limit the field of view (FOV) of players. We conducted a study to investigate the effects of limited FOV on co-presence, gesture recognition, overall enjoyment, and reaction time. Initially, we observed experienced musicians collaborating informally with and without visual occlusion, noting that collaboration suffered with limited FOV. We then conducted a within-subjects study with 19 participants, comparing an unrestricted FOV holographic setup called HoloJam to Nreal AR glasses with a 52° limited FOV. In the AR setup, we tested two conditions: standard AR with a 52° FOV and a modified AR notification system called Mini Musicians. Results showed that HoloJam provided higher co-presence, quicker gesture recognition, and greater enjoyment. The Mini Musicians application reduced reaction time and maintained enjoyment compared to the standard AR setup. We conclude that limited FOV impacts musical collaboration, but notifications can improve reaction time and should be considered in future XR music collaborations.',
     keywords: ['extended reality', 'field of view', 'avatars', 'musical collaboration'],
+
+    doi: '10.1109/IS264627.2025.11284617',
+
+    pages: '1–11',
   },
   {
     id: 'knitting-with-unknown-trees',
     type: 'conference',
     year: 2025,
-    authors: ['Doenja Oogjes', 'et al.'],
+    authors: ['Doenja Oogjes', 'Ege Kökel', 'Netta Ofer', 'Hsiang-Lin Kuo', 'Jasmijn Vugts', 'Troy Nachtigall', ME],
     title: 'Knitting with Unknown Trees: Assembling a More-than-Human Practice',
     venue: 'ACM Designing Interactive Systems Conference (DIS)',
     venueShort: 'ACM DIS 2025',
+
+    pages: '119–134',
+
+    doi: '10.1145/3715336.3735431',
   },
 
   // ---------------------------------------------------------------- 2024
@@ -196,6 +216,10 @@ export default [
     location: 'Sydney, Australia',
     pages: '138–147',
     doi: '10.1109/ISMAR59233.2023.00028',
+
+    url: 'https://arxiv.org/abs/2309.00842',
+
+    urlLabel: 'arXiv',
   },
   {
     id: 'stringesthesia',
@@ -219,7 +243,7 @@ export default [
     id: 'virtual-ai-jam',
     type: 'conference',
     year: 2023,
-    authors: [ME, 'et al.'],
+    authors: [ME, 'Alvin Jude', 'Greg Phillips', 'Ellen Yi-Luen Do'],
     title: 'Virtual AI Jam: AI-Driven Virtual Musicians for Human-in-the-Loop Musical Improvisation',
     venue: 'AI Music Creativity Conference (AIMC)',
     venueShort: 'AIMC 2023',
@@ -237,12 +261,16 @@ export default [
     id: 'rhythmic-conversations',
     type: 'conference',
     year: 2023,
-    authors: [ME, 'et al.'],
+    authors: [ME, 'Suibi Che-Chuan Weng', 'Ellen Yi-Luen Do'],
     title: 'Rhythmic Conversations: Musical Performance with Improvising AI Drummers',
     venue: 'AI Music Creativity Conference (AIMC)',
     venueShort: 'AIMC 2023',
     location: 'Brighton, UK',
     image: 'rhythmic-conversations.webp',
+
+    url: 'https://aimc2023.pubpub.org/pub/qot7sw4x',
+
+    urlLabel: 'AIMC',
   },
   {
     id: 'computer-supported-musical-improvisation-nime',
@@ -309,6 +337,10 @@ export default [
     venueShort: 'Handbook of Smart Cities',
     doi: '10.1007/978-3-030-15145-4_94-1',
     image: 'smart-cities.webp',
+
+    url: 'https://sandrabae.github.io/materials/springer_smartcity.pdf',
+
+    urlLabel: 'PDF (author copy)',
   },
   {
     id: 'linguist-vs-machine',
@@ -337,6 +369,8 @@ export default [
     url: 'https://www.tenor-conference.org/proceedings/2020/07_Hopkins_tenor20.pdf',
     urlLabel: 'PDF (TENOR)',
     image: 'jam-tabs.webp',
+
+    pages: '56–62',
   },
   {
     id: 'hippocampal-connectivity-laterality',
@@ -389,9 +423,9 @@ export default [
     volume: '90',
     issue: '1',
     pages: '4',
-    url: 'https://academic.oup.com/biolreprod/article/90/1/4,%201-8/2513967',
-    urlLabel: 'Article',
     image: 'foxp3.webp',
+
+    doi: '10.1095/biolreprod.113.112375',
   },
   {
     id: 'foxd1-pituitary-lh',
@@ -413,20 +447,28 @@ export default [
     id: 'networking-virtual-ai-musicians',
     type: 'poster',
     year: 2023,
-    authors: [ME, 'et al.'],
-    title: 'Networking Virtual AI-Driven Musicians for Collaborative Jamming with Human and AI Musicians',
-    venue: 'IEEE ISMAR 2023 (Adjunct)',
+    authors: [ME, 'Rishi Vanukuru', 'Suibi Che-Chuan Weng', 'Chad Tobin', 'Amy Banić', 'Ellen Yi-Luen Do'],
+    title: 'Networking AI-Driven Virtual Musicians in Extended Reality',
+    venue: 'IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct), Demo and Poster tracks',
     venueShort: 'ISMAR 2023',
     image: 'networking-aivm.webp',
+
+    pages: '752–756',
+
+    doi: '10.1109/ISMAR-Adjunct60411.2023.00162',
   },
   {
     id: 'limited-fov-jamming-xr',
     type: 'poster',
     year: 2023,
-    authors: ['Suibi Che-Chuan Weng', ME],
+    authors: ['Suibi Che-Chuan Weng', ME, 'Shih-Yu Ma', 'Chad Tobin', 'Amy Banić', 'Ellen Yi-Luen Do'],
     title: 'Investigating the Effects of Limited Field of View on Jamming Experience in Extended Reality',
-    venue: 'IEEE ISMAR 2023 (Adjunct)',
+    venue: 'IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)',
     venueShort: 'ISMAR 2023',
+
+    pages: '493–495',
+
+    doi: '10.1109/ISMAR-Adjunct60411.2023.00107',
   },
   {
     id: 'stringesthesia-nime',
@@ -442,6 +484,8 @@ export default [
     abstract:
       'This paper introduces Stringesthesia, an interactive and improvised performance paradigm. Stringesthesia was designed to explore the connection between performer and audience by using real-time neuroimaging technology that gave the audience direct access to the performer’s internal mental state and determined the extent of how the audience could participate with the performer throughout the performance. Functional near-infrared spectroscopy (fNIRS) technology was used to assess metabolic activity in a network of brain areas collectively associated with a metric we call “trust”. The real-time measurement of the performer’s level of trust was visualized behind the performer and used to dynamically restrict or promote audience participation: e.g., as the performer’s trust in the audience grew, more participatory stations for playing drums and selecting the performer’s chords were activated. Throughout the paper we discuss prior work that heavily influenced our design, conceptual and methodological issues with using fNIRS technology, and our system architecture. We then describe an employment of this paradigm with a solo guitar player.',
     keywords: ['performance paradigms', 'neuroimaging', 'fNIRS', 'trust', 'musical agency', 'improvisation'],
+
+    pages: '116–122',
   },
   {
     id: 'fov-avatar-awareness',
@@ -455,6 +499,10 @@ export default [
     abstract:
       'To investigate how field of view (FOV) affects how players notice the communicative gestures of their partner’s avatar in a musical task, we conducted an experiment that compares several AR technologies with varying FOV. We measured response time to communicative gestures, co-presence score, and task enjoyment in three different AR scenarios: holograms, AR headset, and an AR headset with notifications of the avatar’s intention to gesture. Results suggest that the hologram setup had the fastest response time and highest ratings for sense of co-presence and task enjoyment. Notification tasks slowed response time, but noticeably improved co-presence with the avatar.',
     keywords: ['augmented reality', 'field of view', 'avatars', 'musical collaboration'],
+
+    pages: '633–634',
+
+    doi: '10.1109/VRW58643.2023.00159',
   },
   {
     id: 'how-late-is-too-late',
@@ -468,12 +516,16 @@ export default [
     abstract:
       'Networked Musical Collaboration requires near-instantaneous network transmission for successful real-time collaboration. We studied the way changes in network latency affect participants’ auditory and visual perception in latency detection, as well as latency tolerance in AR. Twenty-four participants were asked to play a hand drum with a prerecorded remote musician rendered as an avatar in AR at different levels of audio-visual latency. We analyzed the subjective responses of the participants from each session. Results suggest a minimum noticeable delay value between 160 milliseconds (ms) and 320 ms, as well as no upper limit to audio-visual delay tolerance.',
     keywords: ['augmented reality', 'network latency', 'networked music', 'perception'],
+
+    pages: '686–687',
+
+    doi: '10.1109/VRW55335.2022.00194',
   },
   {
     id: 'stringesthesia-fnirs-poster',
     type: 'poster',
     year: 2022,
-    authors: [ME, 'et al.'],
+    authors: [ME, 'Emily Doherty', 'Netta Ofer', 'Suibi Che-Chuan Weng', 'Peter Gyory', 'Chad Tobin', 'Leanne Hirshfield', 'et al.'],
     title: 'Stringesthesia: Interactive Musical Improvisation Using Functional Near-Infrared Spectroscopy',
     venue: 'Front Range Neuroscience Group, Poster Session',
     venueShort: 'Front Range Neuroscience 2022',
@@ -503,6 +555,7 @@ export default [
     pages: '1–6',
     doi: '10.1145/3430524.3442466',
     image: 'jam-station.webp',
+
   },
   {
     id: 'hippocampal-connectivity-sfn',

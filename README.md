@@ -20,10 +20,13 @@ All content lives in `content/`. Edit a file there, then run `npm run dev` to pr
 | `content/site.js` | Name, tagline, bio, current roles, social links, email, SEO description |
 | `content/publications.js` | Every publication. Add `abstract` to give a paper its own page with Google Scholar meta tags |
 | `content/projects.js` | Research project cards (`featured: true` shows a card on the home page), plus performances |
+| `content/project-details.js` | The long-form project pages at `/research/<slug>/`: summary, sections, key findings, tools, video, gallery, code links, and related projects |
 | `content/cv.js` | Education, experience, funding, awards, teaching, talks, service, and mentoring |
 | `content/resources.js` | AI Music Resources page |
 
 **To add a paper PDF:** put it in `src/assets/papers/` and set `pdf: 'file-name.pdf'` on the publication.
+
+**To add a project-page figure:** put the original in `raw/img/projects/`, run `npm run images`, and add it to that project's `gallery` as `projects/<name>.webp`. The first gallery image becomes the page's hero and share image.
 
 **To add an image:** put the original in `raw/img/` and run `npm run images`. This writes an optimized `.webp` to `src/assets/img/`. Reference it as `image: 'name.webp'`. The `raw/` folder is git-ignored, so the originals stay local.
 

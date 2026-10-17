@@ -58,6 +58,19 @@
   });
   search?.addEventListener('input', apply);
 
+  // Load YouTube players only when clicked (keeps pages fast and avoids tracking until then)
+  document.querySelectorAll('[data-youtube]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${a.dataset.youtube}?autoplay=1`;
+      iframe.title = a.getAttribute('aria-label') || 'Video';
+      iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      iframe.allowFullscreen = true;
+      a.replaceWith(iframe);
+    });
+  });
+
   // Copy BibTeX
   document.querySelectorAll('[data-copy]').forEach((btn) => {
     btn.addEventListener('click', async () => {
