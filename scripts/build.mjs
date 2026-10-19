@@ -18,7 +18,8 @@ import * as cv from '../content/cv.js';
 import { brand } from './icons.mjs';
 
 const OUT = 'dist';
-const SITE_URL = (process.env.SITE_URL || site.url).replace(/\/$/, '');
+// Always canonicalize to https (GitHub reports http:// until a custom domain's certificate is issued)
+const SITE_URL = (process.env.SITE_URL || site.url).replace(/\/$/, '').replace(/^http:\/\//, 'https://');
 const BASE = (process.env.BASE_PATH || '').replace(/\/$/, '');
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const YEAR = new Date().getFullYear();
