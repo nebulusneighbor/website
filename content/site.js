@@ -48,6 +48,9 @@ export default {
     'Neuroscience', 'Music Cognition', 'Networked Music', 'Music & Health', 'Performance',
   ],
 
+  // Google Analytics 4 measurement ID (set to '' to turn analytics off)
+  googleAnalytics: 'G-J2S29LDSKR',
+
   email: 'TorinHopkins@gmail.com',
   cvPdf: '/assets/papers/Torin_Hopkins_CV.pdf',
   photo: '/assets/img/profile.webp',

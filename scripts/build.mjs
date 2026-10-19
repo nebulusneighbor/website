@@ -237,6 +237,7 @@ ${head}
 <link rel="stylesheet" href="${u('/assets/css/site.css')}?v=${cssV}">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+${analytics}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -268,6 +269,11 @@ ${body}
 </html>
 `;
 }
+
+// Google Analytics 4 — skipped when previewing locally so test visits aren't counted
+const analytics = site.googleAnalytics
+  ? `<script>if(!/^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname)){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=${site.googleAnalytics}';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${site.googleAnalytics}')}</script>`
+  : '';
 
 const pageHeader = (title, lede = '', eyebrow = '') =>
   `<header class="page-header"><div class="wrap">${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ''}<h1>${title}</h1>${lede ? `<p class="lede">${lede}</p>` : ''}</div></header>`;
