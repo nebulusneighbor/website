@@ -68,7 +68,7 @@ export default {
   jobMarket: 'I am currently applying to academic positions. Please reach out if you have questions or would like to collaborate!',
 
   // Profiles shown as icons and used for SEO (schema.org "sameAs").
-  // Add Google Scholar or ResearchGate here when you have the URL.
+  // Add ResearchGate here when you have the URL.
   social: [
     { id: 'github', label: 'GitHub', url: 'https://github.com/nebulusneighbor' },
     { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/torin-hopkins-35259578/' },
@@ -76,7 +76,7 @@ export default {
     { id: 'youtube', label: 'YouTube', url: 'https://www.youtube.com/channel/UCfnYlpToe1CZ81qKk9voz6Q' },
     { id: 'instagram', label: 'Instagram', url: 'https://www.instagram.com/torin_hopkins/' },
     { id: 'x', label: 'X (Twitter)', url: 'https://twitter.com/TorinHopkins' },
-    // { id: 'scholar', label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=XXXX' },
+    { id: 'scholar', label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=CBqY5KQAAAAJ' },
   ],
 
   affiliations: [
