@@ -183,6 +183,7 @@ p { margin: 0 0 1em; }
 .portrait {
   width: min(320px, 72vw); aspect-ratio: 1; object-fit: cover; border-radius: 50%;
   border: 6px solid var(--bg); box-shadow: 0 0 0 1px var(--border), var(--shadow);
+  object-position: 60% center; /* keeps the hero photo's subject (right of centre) in the circle */
 }
 .hero-photo::before {
   content: ''; position: absolute; inset: -14px; border-radius: 50%;

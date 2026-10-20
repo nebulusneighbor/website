@@ -477,7 +477,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
       ${socialLinks('social social-lg')}
     </div>
     <div class="hero-photo">
-      ${img('stringesthesia.webp', `${site.name} performing Stringesthesia on guitar while wearing an fNIRS brain-imaging cap`, { eager: true, cls: 'portrait' })}
+      ${img('stringesthesia-job-talk.webp', `${site.name}, seen from behind, playing guitar in an fNIRS brain-imaging cap during a Stringesthesia performance`, { eager: true, cls: 'portrait' })}
     </div>
   </div>
 </section>
