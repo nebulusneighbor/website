@@ -58,6 +58,13 @@
   });
   search?.addEventListener('input', apply);
 
+  // Email links: the address ships encoded so scrapers can't read it from the HTML
+  document.querySelectorAll('[data-em]').forEach((a) => {
+    const email = [...atob(a.dataset.em)].reverse().join('');
+    a.href = `mailto:${email}`;
+    a.querySelectorAll('[data-em-text]').forEach((s) => { s.textContent = email; });
+  });
+
   // Load YouTube players only when clicked (keeps pages fast and avoids tracking until then)
   document.querySelectorAll('[data-youtube]').forEach((a) => {
     a.addEventListener('click', (e) => {

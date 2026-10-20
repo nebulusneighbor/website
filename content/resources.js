@@ -21,7 +21,10 @@ export default [
       { name: 'Mubert', url: 'https://mubert.com/' },
       { name: 'AIVA', url: 'https://www.aiva.ai/' },
       { name: 'Splash Pro', url: 'https://pro.splashmusic.com/' },
-      { name: 'MusicLM / MusicFX', url: 'https://aitestkitchen.withgoogle.com/tools/music-fx' },
+      { name: 'MusicLM / MusicFX', url: 'https://labs.google/fx/tools/music-fx' },
+      { name: 'Udio', url: 'https://www.udio.com/' },
+      { name: 'Stable Audio', url: 'https://stableaudio.com/' },
+      { name: 'ElevenLabs Music', url: 'https://elevenlabs.io/music' },
     ],
   },
   {
@@ -33,6 +36,12 @@ export default [
       { name: 'Meta AudioCraft (code, papers)', url: 'https://github.com/facebookresearch/audiocraft' },
       { name: 'Meta AudioCraft (online)', url: 'https://audiocraft.metademolab.com/' },
       { name: 'Meta MusicGen docs (code)', url: 'https://github.com/facebookresearch/audiocraft/blob/main/docs/MUSICGEN.md' },
+      { name: 'ACE-Step 1.5 (local song generation)', url: 'https://github.com/ace-step/ACE-Step-1.5' },
+      { name: 'YuE (lyrics-to-song)', url: 'https://github.com/multimodal-art-projection/YuE' },
+      { name: 'HeartMuLa (music foundation models)', url: 'https://github.com/HeartMuLa/heartlib' },
+      { name: 'DiffRhythm (full-song diffusion)', url: 'https://github.com/ASLP-lab/DiffRhythm' },
+      { name: 'Stable Audio Open (weights)', url: 'https://huggingface.co/stabilityai/stable-audio-open-1.0' },
+      { name: 'Magenta RealTime (live generation)', url: 'https://github.com/magenta/magenta-realtime' },
     ],
   },
   {
@@ -47,6 +56,8 @@ export default [
       { name: 'PopMAG', url: 'https://www.slideshare.net/ivaderivader/popmag-pop-music-accompaniment-generation' },
       { name: 'MuseCoco', url: 'https://arxiv.org/abs/2306.00110' },
       { name: 'GETMusic', url: 'https://arxiv.org/abs/2305.10841' },
+      { name: 'Anticipatory Music Transformer', url: 'https://github.com/jthickstun/anticipation' },
+      { name: 'Aria (EleutherAI piano model)', url: 'https://github.com/EleutherAI/aria' },
     ],
   },
   {
@@ -66,6 +77,7 @@ export default [
     items: [
       { name: 'Onsets and Frames', url: 'https://magenta.tensorflow.org/onsets-frames' },
       { name: 'MT3', url: 'https://openreview.net/forum?id=iMSjopcOn0p' },
+      { name: 'Basic Pitch (Spotify, audio-to-MIDI)', url: 'https://basicpitch.spotify.com/' },
     ],
   },
   {
@@ -75,6 +87,7 @@ export default [
       { name: 'PANNs', url: 'https://arxiv.org/abs/1912.10211' },
       { name: 'Tagging Transformer', url: 'https://mac.kaist.ac.kr/~juhan/gct634/Slides/KAIST_May_20_2024_Scalable_Music_Representation_Learning.pdf' },
       { name: 'CLAP', url: 'https://medium.com/axinc-ai/clap-feature-extraction-model-for-searching-audio-from-text-dcfd4c93756e' },
+      { name: 'MERT', url: 'https://huggingface.co/m-a-p/MERT-v1-330M' },
     ],
   },
   {
@@ -83,6 +96,8 @@ export default [
       { name: 'Spleeter', url: 'https://www.theoj.org/joss-papers/joss.02154/10.21105.joss.02154.pdf' },
       { name: 'Open-Unmix', url: 'https://sigsep.github.io/open-unmix/' },
       { name: 'Demucs', url: 'https://github.com/facebookresearch/demucs' },
+      { name: 'BS-RoFormer', url: 'https://github.com/lucidrains/BS-RoFormer' },
+      { name: 'Ultimate Vocal Remover', url: 'https://github.com/Anjok07/ultimatevocalremovergui' },
     ],
   },
   {
@@ -90,6 +105,36 @@ export default [
     items: [
       { name: 'HiFiSinger', url: 'https://arxiv.org/abs/2009.01776' },
       { name: 'DiffSinger', url: 'https://arxiv.org/abs/2105.02446' },
+    ],
+  },
+  {
+    heading: 'Datasets',
+    items: [
+      { name: 'Lakh MIDI Dataset', url: 'https://colinraffel.com/projects/lmd/' },
+      { name: 'MAESTRO (piano audio + MIDI)', url: 'https://magenta.tensorflow.org/datasets/maestro' },
+      { name: 'Groove MIDI Dataset (drums)', url: 'https://magenta.tensorflow.org/datasets/groove' },
+      { name: 'NSynth', url: 'https://magenta.tensorflow.org/datasets/nsynth' },
+      { name: 'GiantMIDI-Piano', url: 'https://github.com/bytedance/GiantMIDI-Piano' },
+      { name: 'Aria-MIDI', url: 'https://huggingface.co/datasets/loubb/aria-midi' },
+      { name: 'GigaMIDI', url: 'https://huggingface.co/datasets/Metacreation/GigaMIDI' },
+      { name: 'POP909', url: 'https://github.com/music-x-lab/POP909-Dataset' },
+      { name: 'Slakh2100 (multitrack)', url: 'http://www.slakh.com/' },
+      { name: 'MUSDB18 (source separation)', url: 'https://sigsep.github.io/datasets/musdb.html' },
+      { name: 'Free Music Archive (FMA)', url: 'https://github.com/mdeff/fma' },
+      { name: 'MTG-Jamendo', url: 'https://github.com/MTG/mtg-jamendo-dataset' },
+      { name: 'MusicCaps (text–music pairs)', url: 'https://www.kaggle.com/datasets/googleai/musiccaps' },
+      { name: 'Song Describer Dataset', url: 'https://github.com/mulab-mir/song-describer-dataset' },
+    ],
+  },
+  {
+    heading: 'Python Libraries',
+    items: [
+      { name: 'librosa (audio analysis)', url: 'https://librosa.org/' },
+      { name: 'Essentia', url: 'https://essentia.upf.edu/' },
+      { name: 'music21 (symbolic analysis)', url: 'https://web.mit.edu/music21/' },
+      { name: 'pretty_midi', url: 'https://github.com/craffel/pretty-midi' },
+      { name: 'MidiTok (MIDI tokenization)', url: 'https://github.com/Natooz/MidiTok' },
+      { name: 'mirdata (dataset loaders)', url: 'https://github.com/mir-dataset-loaders/mirdata' },
     ],
   },
 ];

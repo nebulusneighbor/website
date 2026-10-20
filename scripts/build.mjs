@@ -162,10 +162,17 @@ const NAV = [
   ['Contact', '/#contact'],
 ];
 
+// Email is never written to the HTML in plain text, to keep it away from scrapers.
+// It ships reversed and base64-encoded; site.js decodes it in the browser.
+const emailEnc = Buffer.from([...site.email].reverse().join('')).toString('base64');
+const emailFallback = esc(site.email.replace('@', ' [at] ').replace(/\./g, ' [dot] '));
+const emailLink = (inner, attrs = '') => `<a href="${u('/#contact')}" data-em="${emailEnc}"${attrs}>${inner}</a>`;
+const emailText = `<span data-em-text>${emailFallback}</span>`;
+
 const socialLinks = (cls = 'social') =>
   `<ul class="${cls}">${site.social
     .map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="me noopener" aria-label="${esc(s.label)}" title="${esc(s.label)}">${icon(s.id)}</a></li>`)
-    .join('')}<li><a href="mailto:${site.email}" aria-label="Email" title="Email">${icon('mail')}</a></li></ul>`;
+    .join('')}<li>${emailLink(icon('mail'), ' aria-label="Email" title="Email"')}</li></ul>`;
 
 const personLd = {
   '@type': 'Person',
@@ -174,7 +181,6 @@ const personLd = {
   honorificSuffix: 'PhD',
   url: abs('/'),
   image: abs(site.photo),
-  email: `mailto:${site.email}`,
   jobTitle: 'Researcher in Music, Computing, and Neuroscience',
   description: site.description,
   affiliation: site.affiliations.map((a) => ({ '@type': 'CollegeOrUniversity', name: a.name, url: a.url })),
@@ -521,7 +527,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   <div class="wrap contact">
     <h2 id="contact-h">Get in Touch</h2>
     <p>${esc(site.jobMarket)}</p>
-    <a class="btn btn-light" href="mailto:${site.email}">${icon('mail')}${esc(site.email)}</a>
+    ${emailLink(`${icon('mail')}${emailText}`, ' class="btn btn-light"')}
     ${socialLinks('social social-lg')}
   </div>
 </section>`;
@@ -741,7 +747,7 @@ ${pageHeader('Performances &amp; Installations', 'Creative performance and inter
     ['Performances &amp; Exhibitions', [...performances.map((p) => row(p.year, `<strong>${esc(p.title)}</strong> — ${esc(p.venue)}`)), row('1997–Present', 'Performing musician: guitar, voice, music technology')].join(''), 'performances'],
   ];
   const body = `
-${pageHeader('Curriculum Vitae', `${esc(site.honorific)} · <a href="mailto:${site.email}">${esc(site.email)}</a>`)}
+${pageHeader('Curriculum Vitae', `${esc(site.honorific)} · ${emailLink(emailText)}`)}
 <section class="section section-tight">
   <div class="wrap cv">
     <div class="cv-toolbar">
@@ -771,7 +777,7 @@ ${pageHeader('AI Music Resources', 'A curated list of generative AI tools, open-
 </section>`;
   addPage('/ai-music-resources/', layout({
     title: 'AI Music Resources',
-    description: 'Curated AI music resources: generative music tools (Suno, MusicGen, Magenta), open-source code, symbolic and audio generation models, transcription, tagging, and source separation.',
+    description: 'Curated AI music resources: generative music tools (Suno, MusicGen, Magenta), open-source code, symbolic and audio generation models, transcription, tagging, source separation, datasets, and Python libraries.',
     path: '/ai-music-resources/',
     body,
     jsonld: [breadcrumbLd([['AI Music Resources', '/ai-music-resources/']]), personLd],
