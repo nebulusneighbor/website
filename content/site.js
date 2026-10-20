@@ -56,11 +56,6 @@ export default {
   photo: '/assets/img/profile.webp',
   ogImage: '/assets/img/og-card.jpg',
 
-  lessons: {
-    url: 'https://www.drhopkins.art',
-    blurb: 'I bring over a decade of teaching experience, science-based approaches, and knowledge from a lifetime in music.',
-  },
-
   jobMarket: 'I am currently applying to academic positions. Please reach out if you have questions or would like to collaborate!',
 
   // Profiles shown as icons and used for SEO (schema.org "sameAs").

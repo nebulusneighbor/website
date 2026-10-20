@@ -517,16 +517,6 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   </div>
 </section>
 
-<section class="section" aria-labelledby="lessons-h">
-  <div class="wrap callout">
-    <div>
-      <h2 id="lessons-h">Music &amp; Music Technology Lessons</h2>
-      <p>${esc(site.lessons.blurb)}</p>
-    </div>
-    <a class="btn btn-primary" href="${site.lessons.url}" target="_blank" rel="noopener">Lesson information${icon('external')}</a>
-  </div>
-</section>
-
 <section class="section section-dark" id="contact" aria-labelledby="contact-h">
   <div class="wrap contact">
     <h2 id="contact-h">Get in Touch</h2>
