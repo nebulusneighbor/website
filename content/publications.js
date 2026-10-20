@@ -344,7 +344,7 @@ export default [
   },
   {
     id: 'linguist-vs-machine',
-    type: 'workshop',
+    type: 'conference',
     year: 2020,
     authors: ['Sarah Beemer', 'Zak Boston', 'April Bukoski', 'Daniel Chen', 'Princess Dickens', 'Andrew Gerlach', ME, 'Parth Anand Jawale', 'Chris Koski', 'Akanksha Malhotra', 'Piyush Mishra', 'Saliha Muradoğlu', 'Lan Sang', 'Tyler Short', 'Sagarika Shreevastava', 'Elizabeth Spaulding', 'Tetsumichi Umada', 'Beilei Xiang', 'Changbing Yang', 'Mans Hulden'],
     title: 'Linguist vs. Machine: Rapid Development of Finite-State Morphological Grammars',
