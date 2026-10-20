@@ -29,6 +29,12 @@ export const education = [
 
 export const experience = [
   {
+    years: '2015–Present',
+    org: 'SolJAMM LLC',
+    role: 'Founder',
+    summary: 'Led music research. Contracted with National University of Singapore, Studios Education, University of Colorado, and Bowdoin College, among others. Directed R&D in augmented instruments for learning and led workshops and education for thousands of students (guitar, voice, piano, bass, ukulele, drums, music technology).',
+  },
+  {
     years: '2026',
     org: 'University of Colorado Boulder',
     role: 'Research Affiliate, ATLAS Institute and Department of Psychology and Neuroscience',
@@ -52,12 +58,6 @@ export const experience = [
     place: 'Santa Clara, CA',
     role: 'Research Intern',
     summary: 'Designed and tested an AR application for networked improvisation with an AI-driven musician.',
-  },
-  {
-    years: '2015–2019',
-    org: 'SolJAMM LLC',
-    role: 'Research Director',
-    summary: 'Led music research. Contracted with National University of Singapore, Studios Education, University of Colorado, and Bowdoin College, among others. Directed R&D in augmented instruments for learning and led workshops and education for thousands of students (guitar, voice, piano, bass, ukulele, drums, music technology).',
   },
   {
     years: '2013–2017',
