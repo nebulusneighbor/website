@@ -775,7 +775,7 @@ export default {
 
   'soljamm-workshops': {
     period: '2015–2019',
-    context: 'SolJAMM LLC (Research Director)',
+    context: 'SolJAMM LLC (Founder)',
     summary:
       'Through SolJAMM I designed and led technology-enhanced jamming workshops, including one for more than 50 high school students. More broadly, I directed R&D on augmented instruments for learning and taught thousands of students guitar, voice, piano, bass, ukulele, drums, and music technology.',
     sections: [
