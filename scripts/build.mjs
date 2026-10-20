@@ -535,6 +535,10 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
     <p>${esc(site.jobMarket)}</p>
     ${emailLink(`${icon('mail')}${emailText}`, ' class="btn btn-light"')}
     ${socialLinks('social social-lg')}
+    <a class="secret-door" href="https://soljamm.com" target="_blank" rel="noopener" aria-label="A hidden door to SolJAMM, the music education suite I am building">
+      <span class="door-frame" aria-hidden="true"><span class="door-light"></span><span class="door-panel"><span class="door-knob"></span></span></span>
+      <span class="door-hint" aria-hidden="true">SolJAMM →</span>
+    </a>
   </div>
 </section>`;
   addPage('/', layout({

@@ -228,6 +228,40 @@ p { margin: 0 0 1em; }
 .contact .social a { color: var(--on-dark); border-color: #555; }
 .contact .social a:hover { color: #fff; background: #4a4a4a; }
 
+/* Hidden door to SolJAMM: swings open on hover to let the colour out */
+.secret-door { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 56px; text-decoration: none; opacity: 0.55; transition: opacity 0.4s; }
+.secret-door:hover, .secret-door:focus-visible { opacity: 1; }
+.door-frame {
+  position: relative; display: block; width: 44px; height: 72px; border-radius: 22px 22px 2px 2px;
+  background: #050505; box-shadow: 0 0 0 3px #6e5c4b; perspective: 220px; transition: box-shadow 0.6s;
+}
+.door-light { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; }
+.door-light::before {
+  content: ''; position: absolute; inset: -50%;
+  background: conic-gradient(#ff3b6b, #ffa53b, #f5ef3b, #3bff7a, #3bd2ff, #7a3bff, #ff3bd2, #ff3b6b);
+  filter: blur(4px) saturate(1.3); animation: door-spin 3s linear infinite;
+}
+.door-panel {
+  position: absolute; inset: 0; border-radius: inherit; transform-origin: left center;
+  background: linear-gradient(90deg, #6b3f20, #8a5530 55%, #6b3f20);
+  box-shadow: inset 0 0 0 4px #5a3418, inset 0 -26px 0 -21px #4a2a12, inset 0 26px 0 -21px #4a2a12;
+  transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.door-knob { position: absolute; right: 7px; top: 54%; width: 6px; height: 6px; border-radius: 50%; background: #e6c15a; box-shadow: 0 0 2px #000; }
+.door-hint {
+  font-family: var(--font-head); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  background: linear-gradient(90deg, #ff3b6b, #ffa53b, #f5ef3b, #3bff7a, #3bd2ff, #ff3bd2);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  opacity: 0; transform: translateY(-4px); transition: opacity 0.5s 0.2s, transform 0.5s 0.2s;
+}
+.secret-door:hover .door-panel, .secret-door:focus-visible .door-panel { transform: rotateY(-115deg); }
+.secret-door:hover .door-frame, .secret-door:focus-visible .door-frame {
+  box-shadow: 0 0 0 3px #6e5c4b, -14px -6px 34px rgba(255, 59, 210, 0.55), 14px -6px 34px rgba(59, 210, 255, 0.55), 0 -18px 34px rgba(245, 239, 59, 0.45), 0 18px 34px rgba(59, 255, 122, 0.45);
+}
+.secret-door:hover .door-hint, .secret-door:focus-visible .door-hint { opacity: 1; transform: none; }
+@keyframes door-spin { to { transform: rotate(1turn); } }
+@media (prefers-reduced-motion: reduce) { .door-light::before { animation: none; } }
+
 /* ---------------------------------------------------------------- cards */
 .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
