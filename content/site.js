@@ -1,5 +1,5 @@
 // Site-wide settings, bio, and social links.
-// Edit this file to update your name, tagline, bio, or profile links.
+// Edit this file to update your name, tagline, intro, or profile links.
 
 export default {
   name: 'Torin Hopkins',
@@ -24,24 +24,7 @@ export default {
   credentialLine: 'Triple Ph.D. · University of Colorado Boulder',
   fieldsLine: ['Neuroscience', 'Cognitive Science', 'Creative Technology & Design'],
   intro:
-    'I am an interdisciplinary researcher, educator, and performer at the intersection of AI, HCI, XR, Neuroscience, Psychology, and Music, specializing in the design of complex collaborative systems, the analysis of human dynamics, and brain-computer interfaces in musical contexts.',
-
-  currentRoles: [
-    'Research Affiliate, ATLAS Institute & Department of Psychology and Neuroscience, University of Colorado Boulder',
-    'Postdoctoral Fellow (2024–2026), Department of Computer Science, National University of Singapore',
-  ],
-
-  degrees: [
-    { degree: 'Ph.D.', field: 'Creative Technology & Design, Neuroscience, and Cognitive Science', school: 'University of Colorado Boulder' },
-    { degree: 'M.S.', field: 'Mechanical Engineering (Human-Computer Interaction)', school: 'Iowa State University' },
-    { degree: 'B.S.', field: 'Pre-Medical Physiology; Minors in Music and Chemistry', school: 'Southern Illinois University' },
-  ],
-
-  bio: [
-    "I am a researcher at the intersection of music, computer science, and neuroscience. I've also taught thousands of students from ages 3 to 96 at institutions across the country, including universities, public schools, music schools, and private lessons.",
-    "Now I focus on making music experiences more participatory and inclusive through technology. I employ methods I've learned throughout my career as a researcher in psychology, HCI, neuroscience, and computer science to design and build experiences for real-time musical practice.",
-    'I specialize in Artificial Intelligence, Neuroscience, Human Perception, Learning, Hardware & Software Design, Networked Music, and Performance. I primarily publish in HCI, computer science, and engineering venues.',
-  ],
+    "I am an interdisciplinary researcher, educator, and performer at the intersection of AI, HCI, XR, Neuroscience, Psychology, and Music. I design technology that makes musical experiences more participatory and inclusive, from brain-computer interfaces and AI-driven virtual musicians to collaborative systems for real-time performance. I've also taught thousands of students, ages 3 to 96.",
 
   interests: [
     'Artificial Intelligence', 'Human-Computer Interaction', 'Extended Reality', 'Brain-Computer Interfaces',

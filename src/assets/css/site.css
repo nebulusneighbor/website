@@ -204,14 +204,8 @@ p { margin: 0 0 1em; }
 .lede { font-size: 1.1rem; color: var(--muted); max-width: 70ch; }
 .note { color: var(--muted); margin-top: 28px; }
 
-.about { display: grid; gap: 40px; }
-@media (min-width: 860px) { .about { grid-template-columns: 1.5fr 1fr; gap: 64px; } }
-.about-side { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; align-self: start; }
-.about-side h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-top: 1.2em; }
-.about-side h3:first-child { margin-top: 0; }
-.plain, .degrees { list-style: none; margin: 0 0 1em; padding: 0; }
-.plain li, .degrees li { margin-bottom: 0.7em; font-size: 0.93rem; line-height: 1.5; }
-.degrees span { display: block; color: var(--muted); font-size: 0.85rem; }
+.plain { list-style: none; margin: 0 0 1em; padding: 0; }
+.plain li { margin-bottom: 0.7em; font-size: 0.93rem; line-height: 1.5; }
 
 .callout {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px;

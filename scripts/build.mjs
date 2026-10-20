@@ -498,24 +498,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   </div>
 </section>
 
-<section class="section" id="about" aria-labelledby="about-h">
-  <div class="wrap about">
-    <div>
-      <h2 id="about-h">About</h2>
-      ${site.bio.map((b) => `<p>${esc(b)}</p>`).join('\n      ')}
-      <ul class="tags" aria-label="Research interests">${site.interests.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
-    </div>
-    <aside class="about-side">
-      <h3>Currently</h3>
-      <ul class="plain">${site.currentRoles.map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
-      <h3>Education</h3>
-      <ul class="degrees">${site.degrees.map((d) => `<li><strong>${esc(d.degree)}</strong> ${esc(d.field)}<span>${esc(d.school)}</span></li>`).join('')}</ul>
-      <a class="text-link" href="${u('/cv/')}">Full CV${icon('arrow')}</a>
-    </aside>
-  </div>
-</section>
-
-<section class="section section-alt" aria-labelledby="research-h">
+<section class="section" aria-labelledby="research-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="research-h">Selected Research</h2>
@@ -525,7 +508,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   </div>
 </section>
 
-<section class="section" aria-labelledby="pubs-h">
+<section class="section section-alt" aria-labelledby="pubs-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="pubs-h">Recent Publications</h2>
@@ -535,7 +518,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   </div>
 </section>
 
-<section class="section section-alt" aria-labelledby="perf-h">
+<section class="section" aria-labelledby="perf-h">
   <div class="wrap">
     <div class="section-head">
       <h2 id="perf-h">Performances &amp; Installations</h2>

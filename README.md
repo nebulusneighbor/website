@@ -17,7 +17,7 @@ All content lives in `content/`. Edit a file there, then run `npm run dev` to pr
 
 | File | What it controls |
 |---|---|
-| `content/site.js` | Name, tagline, bio, current roles, social links, email (stored encoded), SEO description |
+| `content/site.js` | Name, tagline, intro, social links, email (stored encoded), SEO description |
 | `content/publications.js` | Every publication. Add `abstract` to give a paper its own page with Google Scholar meta tags |
 | `content/projects.js` | Research project cards (`featured: true` shows a card on the home page), plus performances |
 | `content/project-details.js` | The long-form project pages at `/research/<slug>/`: summary, sections, key findings, tools, video, gallery, code links, and related projects |
