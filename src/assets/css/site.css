@@ -359,6 +359,7 @@ a.card-media { display: block; }
 .project-main { min-width: 0; max-width: 760px; }
 .project-hero { margin: 0 0 28px; }
 .project-hero img, .gallery img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); background: #fff; }
+.project-hero video { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: contain; border-radius: var(--radius); }
 figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-height: 1.5; }
 .project-summary { font-size: 1.15rem; line-height: 1.7; }
 .prose-section { margin-top: 2.2em; }

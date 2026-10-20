@@ -65,6 +65,11 @@
     a.querySelectorAll('[data-em-text]').forEach((s) => { s.textContent = email; });
   });
 
+  // Looping project clips: respect reduced-motion by pausing and offering controls instead
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('video.loop').forEach((v) => { v.pause(); v.removeAttribute('autoplay'); v.controls = true; });
+  }
+
   // Load YouTube players only when clicked (keeps pages fast and avoids tracking until then)
   document.querySelectorAll('[data-youtube]').forEach((a) => {
     a.addEventListener('click', (e) => {

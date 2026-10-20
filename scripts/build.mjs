@@ -72,6 +72,14 @@ for (const f of await readdir('src/assets/img', { recursive: true })) {
   const m = await sharp(path.join('src/assets/img', f)).metadata();
   imgDims[f.split(path.sep).join('/')] = [m.width, m.height];
 }
+// Looping clips: src/assets/video/<project-slug>.mp4 (+ .jpg poster) becomes that project's hero
+const loopDims = {};
+for (const f of await readdir('src/assets/video').catch(() => [])) {
+  if (!f.endsWith('.jpg')) continue;
+  const m = await sharp(path.join('src/assets/video', f)).metadata();
+  loopDims[f.slice(0, -4)] = [m.width, m.height];
+}
+
 const img = (file, alt, { cls = '', eager = false, sizes = '' } = {}) => {
   const [w, h] = imgDims[file] || [];
   return `<img src="${u('/assets/img/' + file)}" alt="${esc(alt)}"${w ? ` width="${w}" height="${h}"` : ''}${cls ? ` class="${cls}"` : ''} ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"${sizes ? ` sizes="${sizes}"` : ''}>`;
@@ -384,6 +392,9 @@ function projectPage(pr) {
     return true;
   });
   const hero = gallery[0]?.file || pr.image;
+  const loop = loopDims[pr.slug];
+  // With a loop as the hero, the first gallery image moves down into the gallery
+  const galleryRest = gallery.slice(loop ? 0 : 1);
 
   const body = `
 <article class="project">
@@ -399,12 +410,13 @@ function projectPage(pr) {
   <div class="section section-tight">
     <div class="wrap project-layout">
       <div class="project-main">
-        ${hero ? `<figure class="project-hero">${img(hero, gallery[0]?.caption || pr.title, { eager: true })}${gallery[0]?.caption ? `<figcaption>${esc(gallery[0].caption)}</figcaption>` : ''}</figure>` : ''}
+        ${loop ? `<figure class="project-hero"><video class="loop" src="${u(`/assets/video/${pr.slug}.mp4`)}" poster="${u(`/assets/video/${pr.slug}.jpg`)}" width="${loop[0]}" height="${loop[1]}" autoplay muted loop playsinline preload="metadata" aria-label="${esc(`Short looping clip from the ${pr.title} video`)}"></video></figure>`
+          : hero ? `<figure class="project-hero">${img(hero, gallery[0]?.caption || pr.title, { eager: true })}${gallery[0]?.caption ? `<figcaption>${esc(gallery[0].caption)}</figcaption>` : ''}</figure>` : ''}
         ${d.summary ? `<p class="project-summary">${esc(d.summary)}</p>` : ''}
         ${(d.sections || []).map(section).join('\n')}
         ${d.findings?.length ? `<section class="prose-section findings"><h2>${pr.tags?.includes('instruments') || !lead ? 'Highlights' : 'Key findings'}</h2><ul class="bullets">${d.findings.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></section>` : ''}
         ${d.video ? `<section class="prose-section"><h2>Video</h2>${videoEmbed(d.video)}</section>` : ''}
-        ${gallery.length > 1 ? `<section class="prose-section"><h2>Gallery</h2><div class="gallery">${gallery.slice(1).map((g) => `<figure>${img(g.file, g.caption, { sizes: '(max-width: 700px) 100vw, 420px' })}<figcaption>${esc(g.caption)}</figcaption></figure>`).join('')}</div></section>` : ''}
+        ${galleryRest.length ? `<section class="prose-section"><h2>Gallery</h2><div class="gallery">${galleryRest.map((g) => `<figure>${img(g.file, g.caption, { sizes: '(max-width: 700px) 100vw, 420px' })}<figcaption>${esc(g.caption)}</figcaption></figure>`).join('')}</div></section>` : ''}
         ${pubs.length ? `<section class="prose-section"><h2>Publications</h2><ol class="pubs">${pubs.map(pubItem).join('\n')}</ol></section>` : ''}
       </div>
       <aside class="project-aside">
