@@ -317,16 +317,6 @@ export const performances = [
     venue: 'Boston',
   },
   {
-    title: 'HoloJam',
-    slug: 'holojam',
-    video: 'https://youtu.be/e_u2cq1R2pQ',
-    year: 2025,
-    description: 'A headset-free holographic jam space. Expo visitors played a drum pad alongside AI-driven hologram bandmates created with the Pepper’s ghost illusion.',
-    venue: 'ATLAS Institute Expo, CU Boulder',
-    image: 'holojam.webp',
-    pub: 'limited-fov-musical-collaboration',
-  },
-  {
     title: 'Rhythmic Conversations',
     slug: 'rhythmic-conversations',
     video: 'https://youtu.be/y97t7pM85Lw',
@@ -334,6 +324,16 @@ export const performances = [
     description: 'Audience members play a drum beat and the AI reflects a similar beat back. Meanwhile I improvise on guitar to the resulting music.',
     venue: 'Brighton, United Kingdom; CU Boulder',
     image: 'rhythmic-conversations.webp',
+  },
+  {
+    title: 'HoloJam',
+    slug: 'holojam',
+    video: 'https://youtu.be/e_u2cq1R2pQ',
+    year: '2022–2023',
+    description: 'A headset-free holographic jam space. Expo visitors played a drum pad alongside AI-driven hologram bandmates created with the Pepper’s ghost illusion.',
+    venue: 'ATLAS Institute Expo, CU Boulder',
+    image: 'holojam.webp',
+    pub: 'limited-fov-musical-collaboration',
   },
   {
     title: 'Stringesthesia',

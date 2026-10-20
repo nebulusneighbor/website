@@ -155,6 +155,7 @@ p { margin: 0 0 1em; }
   background: var(--surface-2); color: var(--muted); font-size: 0.75rem; font-weight: 700; font-style: normal; vertical-align: 1px;
 }
 .badge-status { background: var(--accent-soft); color: var(--accent); }
+.pub-status { margin: 0 6px 0 0; color: var(--muted); font-size: 0.75rem; font-style: italic; }
 .badge-oa { background: #e6f2ea; color: #1f6b3a; }
 :root[data-theme='dark'] .badge-oa { background: #1c3324; color: #8fd3a6; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .badge-oa { background: #1c3324; color: #8fd3a6; } }

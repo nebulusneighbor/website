@@ -58,11 +58,19 @@
   });
   search?.addEventListener('input', apply);
 
-  // Email links: the address ships encoded so scrapers can't read it from the HTML
+  // Email links: the address ships encoded and is decoded only on a real click,
+  // so bots that run scripts but don't click never see it. Labelled links reveal
+  // the address first; icon-only links open the mail app straight away.
   document.querySelectorAll('[data-em]').forEach((a) => {
-    const email = [...atob(a.dataset.em)].reverse().join('');
-    a.href = `mailto:${email}`;
-    a.querySelectorAll('[data-em-text]').forEach((s) => { s.textContent = email; });
+    a.addEventListener('click', (e) => {
+      if (a.href.startsWith('mailto:')) return;
+      e.preventDefault();
+      const email = [...atob(a.dataset.em)].reverse().join('');
+      a.href = `mailto:${email}`;
+      const labels = a.querySelectorAll('[data-em-text]');
+      labels.forEach((s) => { s.textContent = email; });
+      if (!labels.length) location.href = a.href;
+    });
   });
 
   // Looping project clips: respect reduced-motion by pausing and offering controls instead

@@ -687,6 +687,7 @@ export default {
   },
 
   holojam: {
+    period: '2022–2023',
     context: 'ATLAS Institute, CU Boulder. Research project with published papers, also shown as a public expo demo',
     summary:
       'HoloJam is a holographic jam space. Using the Pepper’s ghost illusion, animated drummers and bandmates appear as holograms that players can see without any headset, giving an unrestricted view of AI-driven virtual musicians.',
@@ -701,7 +702,7 @@ export default {
       {
         heading: 'Public demos',
         paragraphs: [
-          'Beyond the research studies, HoloJam was exhibited as a public demo at an expo at the ATLAS Institute, CU Boulder. Visitors stepped up to the drum pad and jammed with the holographic bandmates, no headset required.',
+          'Beyond the research studies, HoloJam was exhibited as a public demo at ATLAS Institute expos at CU Boulder in 2022 and 2023. The papers that came out of the project were published from 2023 to 2025. Visitors stepped up to the drum pad and jammed with the holographic bandmates, no headset required.',
         ],
       },
     ],

@@ -127,7 +127,10 @@ const linkChips = (links) =>
     : '';
 
 function pubItem(p) {
-  const status = p.status && p.status !== 'published' ? `<span class="badge badge-status">${STATUS[p.status]}</span>` : '';
+  // Unpublished work sits in its normal category, marked in small text rather than a badge
+  const status = !p.status || p.status === 'published' ? ''
+    : p.status === 'accepted' ? `<span class="badge badge-status">${STATUS[p.status]}</span>`
+    : `<span class="pub-status">${STATUS[p.status]}</span>`;
   const note = p.note ? `<span class="badge">${esc(p.note)}</span>` : '';
   const oa = p.openAccess ? '<span class="badge badge-oa">Open access</span>' : '';
   const title = hasPage(p) ? `<a href="${u(pubPath(p))}">${esc(p.title)}</a>` : esc(p.title);
@@ -170,12 +173,11 @@ const NAV = [
   ['Contact', '/#contact'],
 ];
 
-// Email is never written to the HTML in plain text, to keep it away from scrapers.
-// It ships reversed and base64-encoded; site.js decodes it in the browser.
-const emailEnc = Buffer.from([...site.email].reverse().join('')).toString('base64');
-const emailFallback = esc(site.email.replace('@', ' [at] ').replace(/\./g, ' [dot] '));
+// Email is never written to the HTML in any readable form, to keep it away from scrapers.
+// It ships reversed and base64-encoded; site.js decodes it only when a visitor clicks.
+const emailEnc = site.emailEncoded;
 const emailLink = (inner, attrs = '') => `<a href="${u('/#contact')}" data-em="${emailEnc}"${attrs}>${inner}</a>`;
-const emailText = `<span data-em-text>${emailFallback}</span>`;
+const emailText = '<span data-em-text>Show email</span>';
 
 const socialLinks = (cls = 'social') =>
   `<ul class="${cls}">${site.social
@@ -596,13 +598,12 @@ ${pageHeader('Research', 'Scientific, technical, and creative research spanning 
 
 // Publications list --------------------------------------------------
 {
-  const isMain = (p) => ['journal', 'conference', 'workshop'].includes(p.type) && (!p.status || p.status === 'published' || p.status === 'accepted');
+  const isMain = (p) => ['journal', 'conference', 'workshop'].includes(p.type);
   const groups = [
     ['Peer-Reviewed Publications', publications.filter(isMain)],
     ['Posters & Extended Abstracts', publications.filter((p) => p.type === 'poster')],
     ['Book Chapters', publications.filter((p) => p.type === 'chapter')],
     ['Dissertation', publications.filter((p) => p.type === 'thesis')],
-    ['Under Review & In Preparation', publications.filter((p) => p.status === 'under-review' || p.status === 'in-preparation')],
   ];
   const byYear = (list) => {
     const years = [...new Set(list.map((p) => p.year))].sort((a, b) => b - a);
@@ -734,7 +735,7 @@ ${pageHeader('Performances &amp; Installations', 'Creative performance and inter
     jsonld: [
       breadcrumbLd([['Performances', '/performances/']]),
       ...performances.map((pf) => ({
-        '@type': 'CreativeWork', name: pf.title, description: pf.description, dateCreated: String(pf.year),
+        '@type': 'CreativeWork', name: pf.title, description: pf.description, dateCreated: String(pf.year).slice(0, 4),
         creator: { '@id': abs('/#person') }, locationCreated: pf.venue,
         ...(pf.image ? { image: abs('/assets/img/' + pf.image) } : {}),
       })),

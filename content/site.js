@@ -60,7 +60,9 @@ export default {
   googleSiteVerification: '',
   bingSiteVerification: '',
 
-  email: 'TorinHopkins@gmail.com',
+  // Contact email, reversed then base64-encoded so it isn't readable in this public repo.
+  // To change it: node -e "console.log(btoa([...'you@example.com'].reverse().join('')))"
+  emailEncoded: 'bW9jLmxpYW1nQHNuaWtwb0huaXJvVA==',
   cvPdf: '/assets/papers/Torin_Hopkins_CV.pdf',
   photo: '/assets/img/profile.webp',
   ogImage: '/assets/img/og-card.jpg',
