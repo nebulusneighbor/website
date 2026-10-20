@@ -39,6 +39,7 @@ All content lives in `content/`. Edit a file there, then run `npm run dev` to pr
 - schema.org JSON-LD: `Person`, `ProfilePage`, `WebSite`, `ScholarlyArticle`, `BreadcrumbList`, and `CreativeWork`
 - Google Scholar (Highwire `citation_*`) meta tags and hosted PDFs on each paper page
 - `sitemap.xml`, `robots.txt`, a web manifest, and favicons
+- Search-engine verification tags (`googleSiteVerification` / `bingSiteVerification` in `content/site.js`) and `rel="me"` links to every profile
 - Fast pages: about 2 MB of optimized images, image sizes declared up front, lazy loading, no frameworks
 
 ## Deployment and custom domain

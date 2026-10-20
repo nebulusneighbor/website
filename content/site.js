@@ -48,8 +48,17 @@ export default {
     'Neuroscience', 'Music Cognition', 'Networked Music', 'Music & Health', 'Performance',
   ],
 
+  // Other ways people search for you; helps Google tie them to this site.
+  alternateNames: ['Dr. Torin Hopkins', 'Torin Hopkins PhD'],
+
   // Google Analytics 4 measurement ID (set to '' to turn analytics off)
   googleAnalytics: 'G-J2S29LDSKR',
+
+  // Search-engine ownership verification (the content="..." value from each tool).
+  // Google Search Console: Add property → URL prefix → HTML tag.
+  // Bing Webmaster Tools: Add site → HTML Meta Tag (or import from Search Console).
+  googleSiteVerification: '',
+  bingSiteVerification: '',
 
   email: 'TorinHopkins@gmail.com',
   cvPdf: '/assets/papers/Torin_Hopkins_CV.pdf',

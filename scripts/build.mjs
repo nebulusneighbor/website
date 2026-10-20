@@ -178,12 +178,16 @@ const personLd = {
   '@type': 'Person',
   '@id': abs('/#person'),
   name: site.name,
+  givenName: site.name.split(' ')[0],
+  familyName: site.name.split(' ').at(-1),
+  alternateName: site.alternateNames,
   honorificSuffix: 'PhD',
   url: abs('/'),
   image: abs(site.photo),
   jobTitle: 'Researcher in Music, Computing, and Neuroscience',
   description: site.description,
   affiliation: site.affiliations.map((a) => ({ '@type': 'CollegeOrUniversity', name: a.name, url: a.url })),
+  worksFor: site.affiliations.map((a) => ({ '@type': 'CollegeOrUniversity', name: a.name, url: a.url })),
   alumniOf: [
     { '@type': 'CollegeOrUniversity', name: 'University of Colorado Boulder' },
     { '@type': 'CollegeOrUniversity', name: 'Iowa State University' },
@@ -224,12 +228,14 @@ function layout({ title, description, path: p, body, jsonld = [], head = '', ogT
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${abs(image)}">
+<meta property="og:image:alt" content="${esc(title || site.honorific)}">
 <meta property="og:locale" content="${site.locale}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@TorinHopkins">
 <meta name="twitter:title" content="${esc(fullTitle)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${abs(image)}">
+${site.googleSiteVerification ? `<meta name="google-site-verification" content="${esc(site.googleSiteVerification)}">\n` : ''}${site.bingSiteVerification ? `<meta name="msvalidate.01" content="${esc(site.bingSiteVerification)}">\n` : ''}${site.social.map((s) => `<link rel="me" href="${esc(s.url)}">`).join('\n')}
 ${head}
 <meta name="theme-color" content="#681a1a">
 <link rel="icon" href="${u('/favicon.svg')}" type="image/svg+xml">
