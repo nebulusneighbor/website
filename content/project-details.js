@@ -687,7 +687,7 @@ export default {
   },
 
   holojam: {
-    context: 'ATLAS Institute, CU Boulder',
+    context: 'ATLAS Institute, CU Boulder. Research project with published papers, also shown as a public expo demo',
     summary:
       'HoloJam is a holographic jam space. Using the Pepper’s ghost illusion, animated drummers and bandmates appear as holograms that players can see without any headset, giving an unrestricted view of AI-driven virtual musicians.',
     sections: [
@@ -698,14 +698,21 @@ export default {
           'HoloJam served as the no-field-of-view-limit condition in our studies of AR glasses, where it gave the highest co-presence, the fastest gesture recognition, and the greatest enjoyment.',
         ],
       },
+      {
+        heading: 'Public demos',
+        paragraphs: [
+          'Beyond the research studies, HoloJam was exhibited as a public demo at an expo at the ATLAS Institute, CU Boulder. Visitors stepped up to the drum pad and jammed with the holographic bandmates, no headset required.',
+        ],
+      },
     ],
     tools: ['Pepper’s ghost holograms', 'Unity', 'Mixamo avatars', 'MIDI drum pad'],
+    video: { youtube: 'e_u2cq1R2pQ', title: 'HoloJam video' },
     gallery: [
       { file: 'projects/holojam-conditions.webp', caption: 'HoloJam (right) compared with AR glasses with and without Mini Musicians.' },
       { file: 'projects/holojam-avatars.webp', caption: 'Avatar bandmates: bassist, guitarist, and keyboard player.' },
     ],
     code: [{ label: 'HolojamAnalysis', url: `${GH}/HolojamAnalysis` }],
-    pubs: ['limited-fov-musical-collaboration'],
+    pubs: ['limited-fov-musical-collaboration', 'limited-fov-jamming-xr', 'fov-avatar-awareness'],
     related: ['limited-field-of-view', 'rhythmic-conversations', 'virtual-ai-jam'],
   },
 
