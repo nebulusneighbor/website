@@ -786,6 +786,7 @@ export default {
         ],
       },
     ],
+    links: [{ label: 'soljamm.com', url: 'https://soljamm.com' }],
     related: ['jam-tabs', 'jam-station'],
   },
 

@@ -31,8 +31,9 @@ export const experience = [
   {
     years: '2015–Present',
     org: 'SolJAMM LLC',
+    url: 'https://soljamm.com',
     role: 'Founder',
-    summary: 'Lead music research and direct R&D in augmented instruments for learning. Clients include the National University of Singapore, Studios Education, University of Colorado, and Bowdoin College, among others. Lead workshops and music education, having taught thousands of students (guitar, voice, piano, bass, ukulele, drums, music technology).',
+    summary: 'Music education technology company. Lead music research and direct R&D in augmented instruments for learning. Clients include the National University of Singapore, Studios Education, University of Colorado, and Bowdoin College, among others. Lead workshops and music education, having taught thousands of students (guitar, voice, piano, bass, ukulele, drums, music technology).',
   },
   {
     years: '2026',
