@@ -825,9 +825,11 @@ ${pages.map((p) => `  <url><loc>${abs(p.path)}</loc><lastmod>${BUILD_DATE}</last
 await writeFile(path.join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${abs('/sitemap.xml')}\n`);
 
 // Icons & manifest
-const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#681a1a"/><text x="32" y="43" font-family="Oxygen, Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#fff" text-anchor="middle">TH</text></svg>`;
+// Colorful brain, one color per lobe
+const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#141a2b"/><defs><clipPath id="b"><path d="M11 38C5 34 5 24 11 19C13 11 22 7 29 9C34 5 44 6 48 11C55 11 60 18 58 25C62 31 59 39 52 40C49 44 42 45 37 42C33 46 26 46 22 43C16 45 11 43 11 38Z"/></clipPath></defs><path d="M40 41 L44 54 L49 53 L46 40Z" fill="#8b5cf6"/><ellipse cx="49" cy="45" rx="8" ry="5.5" fill="#a855f7" stroke="#141a2b" stroke-width="1.8"/><g clip-path="url(#b)"><rect width="64" height="64" fill="#3b82f6"/><path d="M0 0H27L22 30L0 40Z" fill="#f97316"/><path d="M27 0H35L31 30L22 30Z" fill="#ef4444"/><path d="M35 0H64V22L45 28L31 30Z" fill="#facc15"/><path d="M0 40L22 30L31 30L45 28L40 64H0Z" fill="#14b8a6"/><path d="M45 28L64 22V64H40Z" fill="#ec4899"/><g fill="none" stroke="#141a2b" stroke-width="1.8" stroke-linecap="round"><path d="M0 40L22 30L31 30L45 28L64 22"/><path d="M27 0L22 30M35 0L31 30"/><path d="M45 28L40 64"/><path d="M12 22C15 26 11 29 14 33M17 13C20 17 16 20 19 24"/><path d="M40 12C42 16 38 19 41 23M50 15C49 19 53 21 52 25"/><path d="M18 38C21 35 25 40 29 36M32 38C35 35 36 40 39 37"/><path d="M50 30C53 32 51 35 55 36"/></g></g><path d="M11 38C5 34 5 24 11 19C13 11 22 7 29 9C34 5 44 6 48 11C55 11 60 18 58 25C62 31 59 39 52 40C49 44 42 45 37 42C33 46 26 46 22 43C16 45 11 43 11 38Z" fill="none" stroke="#141a2b" stroke-width="1.5"/></svg>`;
 await writeFile(path.join(OUT, 'favicon.svg'), faviconSvg);
 await sharp(Buffer.from(faviconSvg)).resize(32, 32).png().toFile(path.join(OUT, 'favicon-32.png'));
+await cp(path.join(OUT, 'favicon-32.png'), path.join(OUT, 'favicon.ico'));
 await sharp(Buffer.from(faviconSvg)).resize(180, 180).png().toFile(path.join(OUT, 'apple-touch-icon.png'));
 await sharp(Buffer.from(faviconSvg)).resize(512, 512).png().toFile(path.join(OUT, 'icon-512.png'));
 await writeFile(path.join(OUT, 'site.webmanifest'), JSON.stringify({
