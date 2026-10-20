@@ -487,7 +487,6 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
       <p class="eyebrow">${esc(site.credentialLine)}</p>
       <h1>${esc(site.name)}</h1>
       <p class="hero-tagline">${esc(site.tagline)}</p>
-      <p class="hero-fields">${site.fieldsLine.map(esc).join('<span aria-hidden="true"> | </span>')}</p>
       <p class="hero-intro">${esc(site.intro)}</p>
       <div class="actions">
         <a class="btn btn-primary" href="${u(site.cvPdf)}">${icon('download')}Download CV</a>

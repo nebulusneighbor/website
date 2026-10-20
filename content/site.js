@@ -22,7 +22,6 @@ export default {
 
   tagline: 'Research in Music, Computing, and Neuroscience',
   credentialLine: 'Triple Ph.D. · University of Colorado Boulder',
-  fieldsLine: ['Neuroscience', 'Cognitive Science', 'Creative Technology & Design'],
   intro:
     "I am an interdisciplinary researcher, educator, and performer at the intersection of AI, HCI, XR, Neuroscience, Psychology, and Music. I design technology that makes musical experiences more participatory and inclusive, from brain-computer interfaces and AI-driven virtual musicians to collaborative systems for real-time performance. I've also taught thousands of students, ages 3 to 96.",
 
