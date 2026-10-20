@@ -747,7 +747,6 @@ ${pageHeader('Performances &amp; Installations', 'Creative performance and inter
     ['Book Chapters', publications.filter((p) => p.type === 'chapter').map(cvPub).join(''), 'chapters'],
     ['Teaching', cv.teaching.map(([y, t]) => row(y, esc(t))).join(''), 'teaching'],
     ['Invited Talks, Keynotes &amp; Workshops', cv.talks.map(([y, t]) => row(y, esc(t))).join(''), 'talks'],
-    ['Mentorship', `<div class="table-wrap"><table class="cv-table"><thead><tr><th>Name</th><th>Degree</th><th>Years</th><th>Context</th></tr></thead><tbody>${cv.mentoring.map((m) => `<tr>${m.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`, 'mentoring'],
     ['Service', cv.service.map(([y, t]) => row(y, esc(t))).join(''), 'service'],
     ['Performances &amp; Exhibitions', [...performances.map((p) => row(p.year, `<strong>${esc(p.title)}</strong> — ${esc(p.venue)}`)), row('1997–Present', 'Performing musician: guitar, voice, music technology')].join(''), 'performances'],
   ];
@@ -764,7 +763,7 @@ ${pageHeader('Curriculum Vitae', `${esc(site.honorific)} · <a href="mailto:${si
 </section>`;
   addPage('/cv/', layout({
     title: 'CV',
-    description: `Curriculum vitae of ${site.name}: education, research experience, funding, publications, teaching, mentoring, and service.`,
+    description: `Curriculum vitae of ${site.name}: education, research experience, funding, publications, teaching, and service.`,
     path: '/cv/',
     body,
     jsonld: [breadcrumbLd([['CV', '/cv/']]), personLd],

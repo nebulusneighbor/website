@@ -21,7 +21,7 @@ All content lives in `content/`. Edit a file there, then run `npm run dev` to pr
 | `content/publications.js` | Every publication. Add `abstract` to give a paper its own page with Google Scholar meta tags |
 | `content/projects.js` | Research project cards (`featured: true` shows a card on the home page), plus performances |
 | `content/project-details.js` | The long-form project pages at `/research/<slug>/`: summary, sections, key findings, tools, video, gallery, code links, and related projects |
-| `content/cv.js` | Education, experience, funding, awards, teaching, talks, service, and mentoring |
+| `content/cv.js` | Education, experience, funding, awards, teaching, talks, and service |
 | `content/resources.js` | AI Music Resources page |
 
 **To add a paper PDF:** put it in `src/assets/papers/` and set `pdf: 'file-name.pdf'` on the publication.
