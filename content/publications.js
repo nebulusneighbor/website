@@ -51,7 +51,7 @@ export default [
   },
   {
     id: 'ai-driven-musicians-collaboration',
-    type: 'journal',
+    type: 'conference',
     status: 'in-preparation',
     year: 2026,
     authors: [ME, 'et al.'],
@@ -59,7 +59,7 @@ export default [
   },
   {
     id: 'ai-music-therapy-stroke',
-    type: 'journal',
+    type: 'conference',
     status: 'in-preparation',
     year: 2026,
     authors: [ME, 'et al.'],
