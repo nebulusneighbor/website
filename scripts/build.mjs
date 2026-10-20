@@ -179,10 +179,13 @@ const emailEnc = site.emailEncoded;
 const emailLink = (inner, attrs = '') => `<a href="${u('/#contact')}" data-em="${emailEnc}"${attrs}>${inner}</a>`;
 const emailText = '<span data-em-text>Show email</span>';
 
-const socialLinks = (cls = 'social') =>
+const socialLinks = (cls = 'social', extra = '') =>
   `<ul class="${cls}">${site.social
     .map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="me noopener" aria-label="${esc(s.label)}" title="${esc(s.label)}">${icon(s.id)}</a></li>`)
-    .join('')}<li>${emailLink(icon('mail'), ' aria-label="Email" title="Email"')}</li></ul>`;
+    .join('')}<li>${emailLink(icon('mail'), ' aria-label="Email" title="Email"')}</li>${extra}</ul>`;
+
+// A tiny version of the hidden SolJAMM door, sitting with the hero's profile icons
+const doorSocial = `<li><a class="secret-door door-mini" href="https://soljamm.com" target="_blank" rel="noopener" aria-label="SolJAMM, the music education suite I am building" title="SolJAMM"><span class="door-frame" aria-hidden="true"><span class="door-light"></span><span class="door-panel"><span class="door-knob"></span></span></span></a></li>`;
 
 const personLd = {
   '@type': 'Person',
@@ -490,7 +493,7 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
         <a class="btn btn-primary" href="${u(site.cvPdf)}">${icon('download')}Download CV</a>
         <a class="btn" href="${u('/research/')}">Explore research${icon('arrow')}</a>
       </div>
-      ${socialLinks('social social-lg')}
+      ${socialLinks('social social-lg', doorSocial)}
     </div>
     <div class="hero-photo">
       ${img('stringesthesia-job-talk.webp', `${site.name}, seen from behind, playing guitar in an fNIRS brain-imaging cap during a Stringesthesia performance`, { eager: true, cls: 'portrait' })}
