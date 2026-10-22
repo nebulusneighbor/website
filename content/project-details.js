@@ -93,7 +93,7 @@ export default {
         heading: 'Approach',
         paragraphs: [
           'As a postdoctoral fellow at the National University of Singapore, I worked on AI and music in music therapy. This line of work begins with qualitative research: interviewing stakeholders about how music therapy is used in stroke recovery, what barriers they face, and where technology could help. These findings then inform the design of AI-assisted songwriting tools for rehabilitation.',
-          'A qualitative study of stakeholder views is under review, and a paper on AI-enabled music therapy for stroke rehabilitation is in preparation.',
+          'The qualitative study of stakeholder perspectives on music-based interventions in stroke rehabilitation in Singapore has been accepted for publication in Neurological Sciences. A paper on AI-enabled music therapy for stroke rehabilitation is in preparation.',
         ],
       },
     ],

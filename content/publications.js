@@ -1,4 +1,4 @@
-// Publications, mirrored from the CV (E:\LaTex\source\Torin_CV_09_2026\publications.tex & posters_ex_abstracts.tex).
+// Publications, mirrored from the CV (E:\LaTex\source\Torin_CV_10_2026\publications.tex & posters_ex_abstracts.tex).
 //
 // Fields
 //   id        URL slug; papers with an abstract get their own page at /publications/<id>/
@@ -32,6 +32,17 @@ export default [
     keywords: ['technology-mediated audience participation', 'mixed reality', 'Musical Metaverse', 'generative AI'],
   },
   {
+    id: 'music-therapy-stroke-stakeholders',
+    type: 'journal',
+    status: 'accepted',
+    year: 2026,
+    authors: ['Sharmaine Pang', 'et al.'],
+    title: 'Music-Based Interventions in Stroke Rehabilitation: Stakeholder Perspectives from a Qualitative Study in Singapore',
+    venue: 'Neurological Sciences',
+    venueShort: 'Neurological Sciences',
+    image: 'stroke-songwriting.webp',
+  },
+  {
     id: 'embodied-symbol-systems',
     type: 'journal',
     status: 'under-review',
@@ -39,15 +50,6 @@ export default [
     authors: [ME, 'Lei Yuan'],
     title: 'Embodied Symbol Systems: How Visual Features Shape the Symbol-Perception-Action Loop in Musical Notation',
     image: 'embodied-symbol-systems.webp',
-  },
-  {
-    id: 'music-therapy-stroke-stakeholders',
-    type: 'journal',
-    status: 'under-review',
-    year: 2026,
-    authors: ['Sharmaine Pang', 'et al.'],
-    title: 'Exploring the Role of Music Therapy in Stroke Recovery: A Qualitative Study of Stakeholder Views',
-    image: 'stroke-songwriting.webp',
   },
   {
     id: 'ai-driven-musicians-collaboration',

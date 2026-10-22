@@ -1,4 +1,4 @@
-// CV sections, mirrored from the LaTeX CV (E:\LaTex\source\Torin_CV_09_2026).
+// CV sections, mirrored from the LaTeX CV (E:\LaTex\source\Torin_CV_10_2026).
 // Publications and performances come from publications.js / projects.js.
 
 export const education = [
