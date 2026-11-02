@@ -411,10 +411,11 @@ figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-heig
 .resource-group h2 { font-size: 1.2rem; color: var(--accent); }
 .resource-group ul { list-style: none; padding: 0; margin: 0; }
 .resource-group li { border-bottom: 1px solid var(--border); }
-.resource-group a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; color: var(--text); text-decoration: none; }
-.resource-group a:hover { color: var(--accent); }
+.resource-group li a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; color: var(--text); text-decoration: none; }
+.resource-group li a:hover { color: var(--accent); }
 .resource-group .icon { color: var(--muted); width: 0.9em; }
 .resource-group > p { font-size: 0.9rem; margin: -4px 0 8px; }
+.edu-tools { max-width: 760px; }
 .resource-name small { display: block; margin-top: 2px; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
 .resource-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .resource-meta .badge { margin: 0; }

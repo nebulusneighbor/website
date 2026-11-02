@@ -18,16 +18,20 @@ export const levels = {
   reading: 'Reading: a paper or article, not a tool',
 };
 
+// Music education and creative tools (non-AI), listed on the Research page.
+export const educationTools = [
+  { name: 'Flappy Keys', note: 'A silly game: keep a ball in the air by playing your MIDI keyboard. Needs Python and any MIDI keyboard.', url: `${GH}/flappy_keys`, level: 'moderate' },
+  { name: 'Pitch Permutations', note: 'Every possible scale in 12 tones, with pictures. Browse the images, or run the Python to make your own.', url: `${GH}/pitch-permutations`, level: 'moderate' },
+  { name: 'qMusic: quantum randomness for Ableton', note: 'Chords and melodies chosen by a simulated quantum circuit (Qiskit) and sent to Ableton over OSC.', url: `${GH}/qMusic`, level: 'advanced' },
+];
+
 export default [
   {
     heading: 'My Tools and Code',
-    intro: 'Open-source tools from my own research and teaching, used in workshops and demos.',
+    intro: 'Open-source AI music tools from my own research, used in workshops and demos.',
     items: [
       { name: 'ML-Ableton: AI soloist in Ableton Live', note: 'Ableton Live sets and a Max for Live device for jamming with a machine-learning soloist. The free Ableton trial works.', url: `${GH}/ML-Ableton`, level: 'moderate' },
-      { name: 'Flappy Keys', note: 'A silly game: keep a ball in the air by playing your MIDI keyboard. Needs Python and any MIDI keyboard.', url: `${GH}/flappy_keys`, level: 'moderate' },
-      { name: 'Pitch Permutations', note: 'Every possible scale in 12 tones, with pictures. Browse the images, or run the Python to make your own.', url: `${GH}/pitch-permutations`, level: 'moderate' },
       { name: 'XRJam ML: AI drummer and soloist for virtual avatars', note: 'Magenta models that play drums and pentatonic solos for the virtual band in XR Jam, via Ableton and Max for Live.', url: `${GH}/XRJAM-ML`, level: 'advanced' },
-      { name: 'qMusic: quantum randomness for Ableton', note: 'Chords and melodies chosen by a simulated quantum circuit (Qiskit) and sent to Ableton over OSC.', url: `${GH}/qMusic`, level: 'advanced' },
       { name: 'AIMAP: the CrowdForge audience-participation system', note: 'Generative multitrack MIDI steered by audience votes. Needs a trained model; contact me for one.', url: `${GH}/AIMAP`, level: 'advanced' },
       { name: 'Icarus: an agent-native DAW for Linux', note: 'An early-prototype open DAW where people, controllers, and AI agents share the same controls. Linux and a Rust build.', url: `${GH}/icarus`, level: 'advanced' },
     ],

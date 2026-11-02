@@ -13,7 +13,7 @@ import site from '../content/site.js';
 import publications from '../content/publications.js';
 import { projects, performances, tags } from '../content/projects.js';
 import details from '../content/project-details.js';
-import resources, { levels as resourceLevels } from '../content/resources.js';
+import resources, { levels as resourceLevels, educationTools } from '../content/resources.js';
 import * as cv from '../content/cv.js';
 import { brand } from './icons.mjs';
 
@@ -555,15 +555,30 @@ const addPage = (p, html, { priority = '0.7', changefreq = 'monthly' } = {}) => 
   }), { priority: '1.0' });
 }
 
+// One linked row in a resource list, with its ease-of-use badge
+function resourceItem(i, groupLevel) {
+  const lv = i.level || groupLevel;
+  return `<li><a href="${esc(i.url)}" target="_blank" rel="noopener"><span class="resource-name">${esc(i.name)}${i.note ? `<small>${esc(i.note)}</small>` : ''}</span><span class="resource-meta">${lv ? `<span class="badge level-${lv}" title="${esc(resourceLevels[lv])}">${esc(resourceLevels[lv].split(':')[0])}</span>` : ''}${icon('external')}</span></a></li>`;
+}
+
 // Research ----------------------------------------------------------
 {
   const used = new Set(projects.flatMap((p) => p.tags || []));
   const body = `
-${pageHeader('Research', 'Scientific, technical, and creative research spanning AI, extended reality, neuroscience, and music. Filter by theme, and open any project for the full story: motivation, methods, findings, media, and papers.', 'Publication and Scientific Works')}
+${pageHeader('Research', 'Scientific, technical, and creative research spanning AI, extended reality, neuroscience, and music. Filter by theme, and open any project for the full story: motivation, methods, findings, media, and papers. Games and tools for teaching are under <a href="#education-tools">Music Education and Creative Tools</a>.', 'Publication and Scientific Works')}
 <section class="section section-tight">
   <div class="wrap">
     ${filterBar(Object.entries(tags).filter(([k]) => used.has(k)), 'Filter projects by theme')}
     <div class="grid" data-filter-items>${projects.map(projectCard).join('\n')}</div>
+  </div>
+</section>
+<section class="section section-tight" id="education-tools">
+  <div class="wrap">
+    <div class="resource-group edu-tools">
+      <h2>Music Education and Creative Tools</h2>
+      <p class="muted">Games and tools I use in teaching and workshops, outside my AI research. For AI tools, see <a href="${u('/ai-music-resources/')}">AI Music Resources</a>.</p>
+      <ul>${educationTools.map((i) => resourceItem(i)).join('')}</ul>
+    </div>
   </div>
 </section>`;
   addPage('/research/', layout({
@@ -785,10 +800,7 @@ ${pageHeader('AI Music Resources', 'Supplements for my classes, workshops, and p
     <ul class="resource-key">${Object.entries(resourceLevels).map(([k, v]) => `<li><span class="badge level-${k}">${esc(v.split(':')[0])}</span>${esc(v.split(':')[1].trim())}</li>`).join('')}</ul>
   </div>
   <div class="wrap resources">
-    ${resources.map((g) => `<section class="resource-group"><h2>${esc(g.heading)}</h2>${g.intro ? `<p class="muted">${esc(g.intro)}</p>` : ''}<ul>${g.items.map((i) => {
-      const lv = i.level || g.level;
-      return `<li><a href="${esc(i.url)}" target="_blank" rel="noopener"><span class="resource-name">${esc(i.name)}${i.note ? `<small>${esc(i.note)}</small>` : ''}</span><span class="resource-meta">${lv ? `<span class="badge level-${lv}" title="${esc(resourceLevels[lv])}">${esc(resourceLevels[lv].split(':')[0])}</span>` : ''}${icon('external')}</span></a></li>`;
-    }).join('')}</ul></section>`).join('\n')}
+    ${resources.map((g) => `<section class="resource-group"><h2>${esc(g.heading)}</h2>${g.intro ? `<p class="muted">${esc(g.intro)}</p>` : ''}<ul>${g.items.map((i) => resourceItem(i, g.level)).join('')}</ul></section>`).join('\n')}
   </div>
 </section>`;
   addPage('/ai-music-resources/', layout({
