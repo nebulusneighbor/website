@@ -1,8 +1,40 @@
 // AI Music Resources page (ported from torinhopkins.com/ai-music-resources).
+// These are the take-home supplements for my classes, workshops, and public demos,
+// so the list is pruned and added to as the field changes.
+//
+// Each item gets a `level` showing how easy it is for a workshop participant to pick up;
+// a group's `level` is the default for its items.
+//   easy      Runs in the browser or a free app: no install, no code
+//   moderate  Needs an install, a DAW, a MIDI device, or a guided notebook
+//   advanced  Needs coding, Python/conda environments, or a GPU
+//   reading   A paper or article to read rather than a tool to use
+
+const GH = 'https://github.com/nebulusneighbor';
+
+export const levels = {
+  easy: 'Easy: in the browser or a free app, no code',
+  moderate: 'Moderate: needs an install, a DAW, a MIDI device, or a guided notebook',
+  advanced: 'Advanced: needs coding, Python environments, or a GPU',
+  reading: 'Reading: a paper or article, not a tool',
+};
 
 export default [
   {
+    heading: 'My Tools and Code',
+    intro: 'Open-source tools from my own research and teaching, used in workshops and demos.',
+    items: [
+      { name: 'ML-Ableton: AI soloist in Ableton Live', note: 'Ableton Live sets and a Max for Live device for jamming with a machine-learning soloist. The free Ableton trial works.', url: `${GH}/ML-Ableton`, level: 'moderate' },
+      { name: 'Flappy Keys', note: 'A silly game: keep a ball in the air by playing your MIDI keyboard. Needs Python and any MIDI keyboard.', url: `${GH}/flappy_keys`, level: 'moderate' },
+      { name: 'Pitch Permutations', note: 'Every possible scale in 12 tones, with pictures. Browse the images, or run the Python to make your own.', url: `${GH}/pitch-permutations`, level: 'moderate' },
+      { name: 'XRJam ML: AI drummer and soloist for virtual avatars', note: 'Magenta models that play drums and pentatonic solos for the virtual band in XR Jam, via Ableton and Max for Live.', url: `${GH}/XRJAM-ML`, level: 'advanced' },
+      { name: 'qMusic: quantum randomness for Ableton', note: 'Chords and melodies chosen by a simulated quantum circuit (Qiskit) and sent to Ableton over OSC.', url: `${GH}/qMusic`, level: 'advanced' },
+      { name: 'AIMAP: the CrowdForge audience-participation system', note: 'Generative multitrack MIDI steered by audience votes. Needs a trained model; contact me for one.', url: `${GH}/AIMAP`, level: 'advanced' },
+      { name: 'Icarus: an agent-native DAW for Linux', note: 'An early-prototype open DAW where people, controllers, and AI agents share the same controls. Linux and a Rust build.', url: `${GH}/icarus`, level: 'advanced' },
+    ],
+  },
+  {
     heading: 'Generative AI and Other Tools',
+    level: 'easy',
     items: [
       { name: 'Suno', url: 'https://suno.ai/' },
       { name: 'Songr', url: 'https://www.songr.ai/' },
@@ -11,13 +43,13 @@ export default [
       { name: 'Riffusion', url: 'https://www.riffusion.com/' },
       { name: 'Beatoven', url: 'https://www.beatoven.ai/' },
       { name: 'Loudly', url: 'https://www.loudly.com/' },
-      { name: 'Magenta', url: 'https://magenta.tensorflow.org/' },
+      { name: 'Magenta', url: 'https://magenta.tensorflow.org/', level: 'moderate' },
       { name: 'BandLab', url: 'https://www.bandlab.com/' },
       { name: 'Boomy', url: 'https://boomy.com/' },
       { name: 'Soundraw', url: 'https://soundraw.io/' },
       { name: 'Moises.ai', url: 'https://moises.ai/' },
-      { name: 'ATLAS / Playbeat', url: 'https://algonaut.audio/' },
-      { name: 'MuseNet / Jukebox', url: 'https://openai.com/research/musenet' },
+      { name: 'ATLAS / Playbeat', url: 'https://algonaut.audio/', level: 'moderate' },
+      { name: 'MuseNet / Jukebox', url: 'https://openai.com/research/musenet', level: 'reading' },
       { name: 'Mubert', url: 'https://mubert.com/' },
       { name: 'AIVA', url: 'https://www.aiva.ai/' },
       { name: 'Splash Pro', url: 'https://pro.splashmusic.com/' },
@@ -29,12 +61,13 @@ export default [
   },
   {
     heading: 'Code-Based Open Source',
+    level: 'advanced',
     items: [
-      { name: 'Google TensorFlow: Music generation tutorial (Jupyter)', url: 'https://www.tensorflow.org/tutorials/audio/music_generation' },
-      { name: 'Google Magenta Studio plugins for Ableton Live', url: 'https://magenta.tensorflow.org/studio/ableton-live/' },
-      { name: 'Magenta Colab notebook', url: 'https://colab.research.google.com/drive/1fxGqfg96RBUvGxZ1XXN07s3DthrKUl4-?usp=sharing' },
+      { name: 'Google TensorFlow: Music generation tutorial (Jupyter)', url: 'https://www.tensorflow.org/tutorials/audio/music_generation', level: 'moderate' },
+      { name: 'Google Magenta Studio plugins for Ableton Live', url: 'https://magenta.tensorflow.org/studio/ableton-live/', level: 'moderate' },
+      { name: 'Magenta Colab notebook', url: 'https://colab.research.google.com/drive/1fxGqfg96RBUvGxZ1XXN07s3DthrKUl4-?usp=sharing', level: 'moderate' },
       { name: 'Meta AudioCraft (code, papers)', url: 'https://github.com/facebookresearch/audiocraft' },
-      { name: 'Meta AudioCraft (online)', url: 'https://audiocraft.metademolab.com/' },
+      { name: 'Meta AudioCraft (online)', url: 'https://audiocraft.metademolab.com/', level: 'easy' },
       { name: 'Meta MusicGen docs (code)', url: 'https://github.com/facebookresearch/audiocraft/blob/main/docs/MUSICGEN.md' },
       { name: 'ACE-Step 1.5 (local song generation)', url: 'https://github.com/ace-step/ACE-Step-1.5' },
       { name: 'YuE (lyrics-to-song)', url: 'https://github.com/multimodal-art-projection/YuE' },
@@ -46,22 +79,24 @@ export default [
   },
   {
     heading: 'Symbolic Models',
+    level: 'reading',
     items: [
       { name: 'Folk-RNN, MusicVAE', url: 'https://ar5iv.labs.arxiv.org/html/2410.20515v1' },
       { name: 'Music Transformer', url: 'https://magenta.tensorflow.org/music-transformer' },
-      { name: 'MuseGAN', url: 'https://github.com/salu133445/musegan' },
+      { name: 'MuseGAN', url: 'https://github.com/salu133445/musegan', level: 'advanced' },
       { name: 'DeepBach', url: 'https://samgoree.github.io/2017/01/29/DeepBach.html' },
       { name: 'Coconet', url: 'https://dash.harvard.edu/server/api/core/bitstreams/62df48f2-5641-405f-ae6d-1fa9cdbfb925/content' },
-      { name: 'Museformer, SongMASS, MusicBERT (Microsoft Muzic)', url: 'https://github.com/microsoft/muzic' },
+      { name: 'Museformer, SongMASS, MusicBERT (Microsoft Muzic)', url: 'https://github.com/microsoft/muzic', level: 'advanced' },
       { name: 'PopMAG', url: 'https://www.slideshare.net/ivaderivader/popmag-pop-music-accompaniment-generation' },
       { name: 'MuseCoco', url: 'https://arxiv.org/abs/2306.00110' },
       { name: 'GETMusic', url: 'https://arxiv.org/abs/2305.10841' },
-      { name: 'Anticipatory Music Transformer', url: 'https://github.com/jthickstun/anticipation' },
-      { name: 'Aria (EleutherAI piano model)', url: 'https://github.com/EleutherAI/aria' },
+      { name: 'Anticipatory Music Transformer', url: 'https://github.com/jthickstun/anticipation', level: 'advanced' },
+      { name: 'Aria (EleutherAI piano model)', url: 'https://github.com/EleutherAI/aria', level: 'advanced' },
     ],
   },
   {
     heading: 'Audio Generation',
+    level: 'reading',
     items: [
       { name: 'WaveNet', url: 'https://arxiv.org/abs/1609.03499' },
       { name: 'SampleRNN', url: 'https://sander.ai/2020/03/24/audio-generation.html' },
@@ -74,34 +109,38 @@ export default [
   },
   {
     heading: 'Transcription',
+    level: 'reading',
     items: [
       { name: 'Onsets and Frames', url: 'https://magenta.tensorflow.org/onsets-frames' },
       { name: 'MT3', url: 'https://openreview.net/forum?id=iMSjopcOn0p' },
-      { name: 'Basic Pitch (Spotify, audio-to-MIDI)', url: 'https://basicpitch.spotify.com/' },
+      { name: 'Basic Pitch (Spotify, audio-to-MIDI)', url: 'https://basicpitch.spotify.com/', level: 'easy' },
     ],
   },
   {
     heading: 'Tagging & Classification',
+    level: 'reading',
     items: [
       { name: 'musicnn', url: 'https://www.upf.edu/web/mtg/blog/-/asset_publisher/pYSKGP3RLdWn/content/musicnn-an-open-source-deep-learning-based-music-tagger' },
       { name: 'PANNs', url: 'https://arxiv.org/abs/1912.10211' },
       { name: 'Tagging Transformer', url: 'https://mac.kaist.ac.kr/~juhan/gct634/Slides/KAIST_May_20_2024_Scalable_Music_Representation_Learning.pdf' },
       { name: 'CLAP', url: 'https://medium.com/axinc-ai/clap-feature-extraction-model-for-searching-audio-from-text-dcfd4c93756e' },
-      { name: 'MERT', url: 'https://huggingface.co/m-a-p/MERT-v1-330M' },
+      { name: 'MERT', url: 'https://huggingface.co/m-a-p/MERT-v1-330M', level: 'advanced' },
     ],
   },
   {
     heading: 'Source Separation',
+    level: 'advanced',
     items: [
-      { name: 'Spleeter', url: 'https://www.theoj.org/joss-papers/joss.02154/10.21105.joss.02154.pdf' },
+      { name: 'Spleeter', url: 'https://www.theoj.org/joss-papers/joss.02154/10.21105.joss.02154.pdf', level: 'reading' },
       { name: 'Open-Unmix', url: 'https://sigsep.github.io/open-unmix/' },
       { name: 'Demucs', url: 'https://github.com/facebookresearch/demucs' },
       { name: 'BS-RoFormer', url: 'https://github.com/lucidrains/BS-RoFormer' },
-      { name: 'Ultimate Vocal Remover', url: 'https://github.com/Anjok07/ultimatevocalremovergui' },
+      { name: 'Ultimate Vocal Remover', url: 'https://github.com/Anjok07/ultimatevocalremovergui', level: 'moderate' },
     ],
   },
   {
     heading: 'Singing Synthesis',
+    level: 'reading',
     items: [
       { name: 'HiFiSinger', url: 'https://arxiv.org/abs/2009.01776' },
       { name: 'DiffSinger', url: 'https://arxiv.org/abs/2105.02446' },
@@ -109,6 +148,7 @@ export default [
   },
   {
     heading: 'Datasets',
+    level: 'advanced',
     items: [
       { name: 'Lakh MIDI Dataset', url: 'https://colinraffel.com/projects/lmd/' },
       { name: 'MAESTRO (piano audio + MIDI)', url: 'https://magenta.tensorflow.org/datasets/maestro' },
@@ -128,6 +168,7 @@ export default [
   },
   {
     heading: 'Python Libraries',
+    level: 'advanced',
     items: [
       { name: 'librosa (audio analysis)', url: 'https://librosa.org/' },
       { name: 'Essentia', url: 'https://essentia.upf.edu/' },

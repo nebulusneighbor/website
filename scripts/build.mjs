@@ -13,7 +13,7 @@ import site from '../content/site.js';
 import publications from '../content/publications.js';
 import { projects, performances, tags } from '../content/projects.js';
 import details from '../content/project-details.js';
-import resources from '../content/resources.js';
+import resources, { levels as resourceLevels } from '../content/resources.js';
 import * as cv from '../content/cv.js';
 import { brand } from './icons.mjs';
 
@@ -779,15 +779,21 @@ ${pageHeader('Curriculum Vitae', `${esc(site.honorific)} · ${emailLink(emailTex
 // AI Music Resources -------------------------------------------------
 {
   const body = `
-${pageHeader('AI Music Resources', 'A curated list of generative AI tools, open-source code, and research models for music: generation, transcription, tagging, source separation, and singing synthesis.')}
+${pageHeader('AI Music Resources', 'Supplements for my classes, workshops, and public demos: generative AI tools, open-source code, and research models for music. I keep adding to and pruning this list so it stays current with what we use in sessions.')}
 <section class="section section-tight">
+  <div class="wrap">
+    <ul class="resource-key">${Object.entries(resourceLevels).map(([k, v]) => `<li><span class="badge level-${k}">${esc(v.split(':')[0])}</span>${esc(v.split(':')[1].trim())}</li>`).join('')}</ul>
+  </div>
   <div class="wrap resources">
-    ${resources.map((g) => `<section class="resource-group"><h2>${esc(g.heading)}</h2><ul>${g.items.map((i) => `<li><a href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.name)}${icon('external')}</a></li>`).join('')}</ul></section>`).join('\n')}
+    ${resources.map((g) => `<section class="resource-group"><h2>${esc(g.heading)}</h2>${g.intro ? `<p class="muted">${esc(g.intro)}</p>` : ''}<ul>${g.items.map((i) => {
+      const lv = i.level || g.level;
+      return `<li><a href="${esc(i.url)}" target="_blank" rel="noopener"><span class="resource-name">${esc(i.name)}${i.note ? `<small>${esc(i.note)}</small>` : ''}</span><span class="resource-meta">${lv ? `<span class="badge level-${lv}" title="${esc(resourceLevels[lv])}">${esc(resourceLevels[lv].split(':')[0])}</span>` : ''}${icon('external')}</span></a></li>`;
+    }).join('')}</ul></section>`).join('\n')}
   </div>
 </section>`;
   addPage('/ai-music-resources/', layout({
     title: 'AI Music Resources',
-    description: 'Curated AI music resources: generative music tools (Suno, MusicGen, Magenta), open-source code, symbolic and audio generation models, transcription, tagging, source separation, datasets, and Python libraries.',
+    description: 'AI music resources for Torin Hopkins’s classes, workshops, and demos, each rated by ease of use: his own open-source tools, generative music tools (Suno, MusicGen, Magenta), open-source code, symbolic and audio generation models, transcription, tagging, source separation, datasets, and Python libraries.',
     path: '/ai-music-resources/',
     body,
     jsonld: [breadcrumbLd([['AI Music Resources', '/ai-music-resources/']]), personLd],

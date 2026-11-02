@@ -414,6 +414,20 @@ figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-heig
 .resource-group a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; color: var(--text); text-decoration: none; }
 .resource-group a:hover { color: var(--accent); }
 .resource-group .icon { color: var(--muted); width: 0.9em; }
+.resource-group > p { font-size: 0.9rem; margin: -4px 0 8px; }
+.resource-name small { display: block; margin-top: 2px; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
+.resource-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.resource-meta .badge { margin: 0; }
+.resource-key { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 0.9rem; color: var(--muted); }
+.level-easy { background: #e6f2ea; color: #1f6b3a; }
+.level-moderate { background: #fbf0d9; color: #7a5300; }
+.level-advanced { background: var(--accent-soft); color: var(--accent); }
+:root[data-theme='dark'] .level-easy { background: #1c3324; color: #8fd3a6; }
+:root[data-theme='dark'] .level-moderate { background: #3a2e14; color: #e8c77a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .level-easy { background: #1c3324; color: #8fd3a6; }
+  :root:not([data-theme='light']) .level-moderate { background: #3a2e14; color: #e8c77a; }
+}
 
 /* ---------------------------------------------------------------- footer */
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); padding: 36px 0 20px; font-size: 0.9rem; }

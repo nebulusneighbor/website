@@ -63,6 +63,7 @@ export default {
       { file: 'projects/crowdforge-audience.webp', caption: 'Audience members voting from their phones during the concert.' },
       { file: 'projects/crowdforge-ui.webp', caption: '(A) The audience voting interface and (B) the projected aggregator showing the crowd’s collective choices.' },
       { file: 'projects/crowdforge-stage.webp', caption: 'The mixed reality stage with virtual musicians and dancers configured by the audience.' },
+      { file: 'crowdforge-paper-teaser.webp', caption: 'From the paper: (A) the final audience results, (B) the concert study performance, and (C) the audience-configured virtual stage and band.' },
       { file: 'projects/crowdforge-cannes-performers.webp', caption: 'Live in Cannes, October 2026: DJ and guitarist performing beneath the audience-configured mixed reality stage.' },
       { file: 'projects/crowdforge-cannes-join.webp', caption: 'Cannes: the audience joins the performance by scanning a QR code.' },
       { file: 'projects/crowdforge-cannes-voting.webp', caption: 'Cannes: the projected aggregator shows the crowd’s votes as they come in.' },
