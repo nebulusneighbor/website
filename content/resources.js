@@ -18,11 +18,37 @@ export const levels = {
   reading: 'Reading: a paper or article, not a tool',
 };
 
-// Music education and creative tools (non-AI), listed on the Research page.
+// Music education and creative tools, listed on the Research page.
+const SJ = 'https://soljamm.com';
+
 export const educationTools = [
-  { name: 'Flappy Keys', note: 'A silly game: keep a ball in the air by playing your MIDI keyboard. Needs Python and any MIDI keyboard.', url: `${GH}/flappy_keys`, level: 'moderate' },
-  { name: 'Pitch Permutations', note: 'Every possible scale in 12 tones, with pictures. Browse the images, or run the Python to make your own.', url: `${GH}/pitch-permutations`, level: 'moderate' },
-  { name: 'qMusic: quantum randomness for Ableton', note: 'Chords and melodies chosen by a simulated quantum circuit (Qiskit) and sent to Ableton over OSC.', url: `${GH}/qMusic`, level: 'advanced' },
+  {
+    heading: 'SolJAMM apps',
+    intro: 'Free, in the browser, nothing to install.',
+    level: 'easy',
+    items: [
+      { name: 'Fret Sudoku', note: 'Some notes are on the neck; place the rest. Levels from open position to the whole neck.', url: `${SJ}/fretdoku/` },
+      { name: 'Ear trainer', note: 'Intervals, scale degrees, chord functions, and cadences, answered in color.', url: `${SJ}/ear/` },
+      { name: 'Fret Notes', note: 'Name the note at any fret, or find every place a note lives, on guitar, bass, or ukulele.', url: `${SJ}/fret-notes/` },
+      { name: 'Fretboard', note: 'Any scale, in any key, on guitar, bass, ukulele, or piano, in color.', url: `${SJ}/fretboard/` },
+      { name: 'Scale finder', note: 'Find scales from notes or chords, or browse all 352 patterns.', url: `${SJ}/scales/` },
+      { name: 'Chord Builder', note: 'How any chord is built, then practice building and naming chords.', url: `${SJ}/chord-builder/` },
+      { name: 'Chord colors', note: 'Every chord in a key as stacked colors, memorized in an eleven-level game.', url: `${SJ}/chords/` },
+      { name: 'Jam tracks', note: 'Solo over backing tracks with the chord colors in time.', url: `${SJ}/tracks/` },
+      { name: 'Jam board', note: 'Loop a progression on a big screen so a whole group can jam. Great for workshops.', url: `${SJ}/jam/` },
+      { name: 'Practice room', note: 'Colored tab, notation, and fretboard for etudes or your own MIDI files. Loop and slow down.', url: `${SJ}/app/` },
+      { name: 'Tab editor', note: 'Write exercises as tab and notation, hear them, and share them.', url: `${SJ}/notation/`, level: 'moderate' },
+    ],
+  },
+  {
+    heading: 'Code',
+    intro: 'Open-source tools to download and run.',
+    items: [
+      { name: 'Flappy Keys', note: 'A silly game: keep a ball in the air by playing your MIDI keyboard. Needs Python and any MIDI keyboard.', url: `${GH}/flappy_keys`, level: 'moderate' },
+      { name: 'Pitch Permutations', note: 'Every possible scale in 12 tones, with pictures. Browse the images, or run the Python to make your own.', url: `${GH}/pitch-permutations`, level: 'moderate' },
+      { name: 'qMusic: quantum randomness for Ableton', note: 'Chords and melodies chosen by a simulated quantum circuit (Qiskit) and sent to Ableton over OSC.', url: `${GH}/qMusic`, level: 'advanced' },
+    ],
+  },
 ];
 
 export default [

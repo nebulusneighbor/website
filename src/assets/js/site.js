@@ -91,6 +91,21 @@
     });
   });
 
+  // Live app demos: load the iframe only when asked, then swap it in for the placeholder
+  document.querySelectorAll('[data-embed]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const box = btn.closest('.embed-lite');
+      const iframe = document.createElement('iframe');
+      iframe.src = btn.dataset.embed;
+      iframe.title = btn.dataset.embedTitle;
+      iframe.allow = 'autoplay; fullscreen; midi';
+      iframe.loading = 'lazy';
+      box.classList.add('is-open');
+      box.append(iframe);
+      btn.remove();
+    });
+  });
+
   // Copy BibTeX
   document.querySelectorAll('[data-copy]').forEach((btn) => {
     btn.addEventListener('click', async () => {

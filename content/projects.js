@@ -39,6 +39,27 @@ export const projects = [
     tags: ['ai', 'health'],
   },
   {
+    slug: 'soljamm-apps',
+    title: 'SolJAMM Apps: Learning Music in Seven Colors',
+    description: 'Free browser apps for practicing, learning, and teaching music with a seven-color system: Fret Sudoku, an ear trainer, a fretboard, Chord Builder, and more.',
+    image: 'soljamm-apps.webp',
+    tags: ['health', 'hci'],
+  },
+  {
+    slug: 'icarus',
+    title: 'Icarus: An Agent-Native DAW',
+    description: 'An open, modular DAW for Linux where people, controllers, and AI agents share every control of the signal chain.',
+    image: 'icarus.webp',
+    tags: ['ai', 'hci'],
+  },
+  {
+    slug: 'looptylooper',
+    title: 'LooptyLooper',
+    description: 'A live looper that runs in the browser, built for footswitch performance with any instrument or voice.',
+    image: 'looptylooper.webp',
+    tags: ['instruments', 'hci'],
+  },
+  {
     slug: 'automatic-arrangement',
     title: 'Automatic Arrangement',
     description: 'A unified framework and neural network architecture that enables automatic multitrack music arrangement.',

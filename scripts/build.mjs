@@ -423,6 +423,7 @@ function projectPage(pr) {
         ${(d.sections || []).map(section).join('\n')}
         ${d.findings?.length ? `<section class="prose-section findings"><h2>${pr.tags?.includes('instruments') || !lead ? 'Highlights' : 'Key findings'}</h2><ul class="bullets">${d.findings.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></section>` : ''}
         ${d.video ? `<section class="prose-section"><h2>Video</h2>${videoEmbed(d.video)}</section>` : ''}
+        ${d.embeds?.length ? `<section class="prose-section"><h2>Try it live</h2><p class="muted">These run right here in the page. Each one loads only when you open it.</p><div class="embeds">${d.embeds.map((e) => `<div class="embed-lite"><div><h3>${esc(e.title)}</h3>${e.note ? `<p>${esc(e.note)}</p>` : ''}</div><div class="actions"><button type="button" class="btn btn-primary" data-embed="${esc(e.url)}" data-embed-title="${esc(e.title)}">${icon('arrow')}Try it here</button><a class="btn" href="${esc(e.url)}" target="_blank" rel="noopener">${icon('external')}Open full screen</a></div></div>`).join('')}</div></section>` : ''}
         ${galleryRest.length ? `<section class="prose-section"><h2>Gallery</h2><div class="gallery">${galleryRest.map((g) => `<figure>${img(g.file, g.caption, { sizes: '(max-width: 700px) 100vw, 420px' })}<figcaption>${esc(g.caption)}</figcaption></figure>`).join('')}</div></section>` : ''}
         ${pubs.length ? `<section class="prose-section"><h2>Publications</h2><ol class="pubs">${pubs.map(pubItem).join('\n')}</ol></section>` : ''}
       </div>
@@ -574,11 +575,11 @@ ${pageHeader('Research', 'Scientific, technical, and creative research spanning 
 </section>
 <section class="section section-tight" id="education-tools">
   <div class="wrap">
-    <div class="resource-group edu-tools">
-      <h2>Music Education and Creative Tools</h2>
-      <p class="muted">Games and tools I use in teaching and workshops, outside my AI research. For AI tools, see <a href="${u('/ai-music-resources/')}">AI Music Resources</a>.</p>
-      <ul>${educationTools.map((i) => resourceItem(i)).join('')}</ul>
-    </div>
+    <h2>Music Education and Creative Tools</h2>
+    <p class="muted edu-intro">Games and tools I use in teaching and workshops. For AI tools, see <a href="${u('/ai-music-resources/')}">AI Music Resources</a>; for the story behind the apps, see <a href="${u('/research/soljamm-apps/')}">SolJAMM Apps</a>.</p>
+  </div>
+  <div class="wrap resources">
+    ${educationTools.map((g) => `<section class="resource-group"><h3>${esc(g.heading)}</h3>${g.intro ? `<p class="muted">${esc(g.intro)}</p>` : ''}<ul>${g.items.map((i) => resourceItem(i, g.level)).join('')}</ul></section>`).join('\n')}
   </div>
 </section>`;
   addPage('/research/', layout({

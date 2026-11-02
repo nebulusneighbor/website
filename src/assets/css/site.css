@@ -415,7 +415,8 @@ figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-heig
 .resource-group li a:hover { color: var(--accent); }
 .resource-group .icon { color: var(--muted); width: 0.9em; }
 .resource-group > p { font-size: 0.9rem; margin: -4px 0 8px; }
-.edu-tools { max-width: 760px; }
+.edu-intro { margin-bottom: 24px; }
+.resource-group h3 { font-size: 1.1rem; color: var(--accent); }
 .resource-name small { display: block; margin-top: 2px; color: var(--muted); font-size: 0.85rem; line-height: 1.4; }
 .resource-meta { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
 .resource-meta .badge { margin: 0; }
@@ -446,3 +447,11 @@ figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 8px; line-heig
   .section { padding: 12px 0; }
   a { color: #000; text-decoration: none; }
 }
+
+/* ---------------------------------------------------------------- live app demos */
+.embeds { display: grid; gap: 14px; }
+.embed-lite { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 16px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); }
+.embed-lite h3 { margin: 0 0 2px; font-size: 1.05rem; }
+.embed-lite p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.embed-lite .actions { margin: 0; }
+.embed-lite iframe { flex-basis: 100%; width: 100%; height: min(80vh, 760px); border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }

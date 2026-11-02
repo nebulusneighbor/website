@@ -76,6 +76,109 @@ export default {
     related: ['automatic-arrangement', 'mr-daw', 'rhythmic-conversations', 'stringesthesia'],
   },
 
+  'soljamm-apps': {
+    period: 'Ongoing',
+    context: 'SolJAMM LLC',
+    summary:
+      'SolJAMM is a free set of browser apps for learning music with seven colors, one for each scale degree. The same colors mark the notes on the fretboard, the keyboard, tab, and notation, so a learner sees one consistent map wherever they look. The apps turn ideas from my notation research into everyday practice tools for students, teachers, and workshop groups.',
+    sections: [
+      {
+        heading: 'The apps',
+        list: [
+          'Practice room: colored tab, notation, and fretboard for etudes or your own MIDI and Guitar Pro files, with looping and slow-down.',
+          'Jam tracks and Jam board: solo over backing tracks, or loop a progression on a big screen for a whole group with the current and next chord in color.',
+          'Fretboard and Scale finder: any scale in any key on guitar, bass, ukulele, or piano, and every one of the 352 scale patterns within an octave.',
+          'Ear trainer: intervals, scale degrees, chord functions, and cadences, answered in color.',
+          'Chord Builder and Chord colors: how every chord is built, then practiced as a game with eleven levels.',
+          'Fret Notes and Fret Sudoku: learn every note on the neck, then place the missing notes on a partly filled neck, from open position to the whole fretboard.',
+          'Tab editor: write exercises as tab and notation, and share them on a contributor page.',
+        ],
+      },
+      {
+        heading: 'From research to practice',
+        paragraphs: [
+          'The color system builds on my research on colored notation and learning aids, from my dissertation work on learning to read music and Jam Tabs to the NSF-funded Embodied Symbol Systems study. Because the apps are free and run in the browser with nothing to install, workshop participants can use them on their own devices during and after a session.',
+        ],
+      },
+    ],
+    tools: ['JavaScript', 'Web Audio', 'MIDI, MusicXML, and Guitar Pro import', 'Supabase'],
+    embeds: [
+      { title: 'Fret Sudoku', url: 'https://soljamm.com/fretdoku/', note: 'Some notes are on the neck; place the rest.' },
+      { title: 'Ear trainer', url: 'https://soljamm.com/ear/', note: 'Hear a scale degree, interval, or chord, and answer in color. Turn your sound on.' },
+      { title: 'Fretboard', url: 'https://soljamm.com/fretboard/', note: 'Any scale, in any key, on guitar, bass, ukulele, or piano.' },
+      { title: 'Chord Builder', url: 'https://soljamm.com/chord-builder/', note: 'See how any chord is built, then practice building and naming chords.' },
+    ],
+    gallery: [
+      { file: 'projects/soljamm-apps-index.webp', caption: 'The SolJAMM apps: ways to play, learn, and teach with the seven colors.' },
+      { file: 'projects/soljamm-fretdoku.webp', caption: 'Fret Sudoku: levels from open position to the whole neck, plus timed exercises.' },
+      { file: 'projects/soljamm-ear.webp', caption: 'The ear trainer: every answer is a color.' },
+      { file: 'projects/soljamm-chord-builder.webp', caption: 'Chord Builder: a chord’s formula, intervals, and spelling for any root.' },
+      { file: 'projects/soljamm-chord-colors.webp', caption: 'Chord colors: every chord in a key as a stack of colors.' },
+      { file: 'projects/soljamm-jam.webp', caption: 'Color jamming: everyone plays the same colors, with the next chord shown ahead of time.' },
+    ],
+    links: [{ label: 'Open the SolJAMM apps', url: 'https://soljamm.com/apps/' }],
+    related: ['jam-tabs', 'embodied-symbol-systems', 'learning-to-read-music', 'soljamm-workshops'],
+  },
+
+  icarus: {
+    period: 'Ongoing (early prototype)',
+    context: 'Open source',
+    summary:
+      'Icarus is an open, modular digital audio workstation (DAW) for Linux, built from scratch so that people, hardware controllers, and AI agents are equal clients. Every part of the signal chain can be read and changed through one protocol, so an agent can do anything a person can: touch a knob, move it, hear the result live, and let go.',
+    sections: [
+      {
+        heading: 'Why an agent-native DAW',
+        paragraphs: [
+          'Most DAWs are built for one person with a mouse, with scripting added later. Icarus starts from the other end: no client has a private API, not even the GUI. That makes it a platform for human–AI co-creation, where a musician and an agent work in the same session at the same time, and every change is attributed and can be undone.',
+        ],
+      },
+      {
+        heading: 'How it works',
+        list: [
+          'Everything is a path: tracks, devices, parameters, automation, and even the GUI layout live in one addressable tree.',
+          'Two GUIs share one session: a native Rust desktop app, and a browser GUI that works from any device on the network and opens a path to VR through WebXR.',
+          'Agents connect through MCP (for example Claude Code), alongside OSC for controllers and VR, WebSocket, and a JSON socket for scripts.',
+          'Agents can experiment before touching anything: fork the project, render dozens of variants in parallel, and measure which control changes which feature of the sound.',
+          'The GUI is data, so people and agents can compose new panels of knobs, faders, and XY pads, or write new panel types, while the session runs.',
+        ],
+      },
+      {
+        heading: 'Status',
+        paragraphs: [
+          'Icarus is an early prototype. The deterministic engine, live PipeWire playback, transactions, undo with attribution, forked offline rendering, and the MCP, OSC, WebSocket, and socket adapters work. MIDI and a sequencer are next.',
+        ],
+      },
+    ],
+    tools: ['Rust', 'egui', 'PipeWire', 'MCP', 'OSC', 'WebSocket', 'WebXR'],
+    gallery: [
+      { file: 'projects/icarus-app.webp', caption: 'The native Icarus app, with a Macros panel an agent composed from data: a knob and an XY pad driving the synth.' },
+      { file: 'projects/icarus-gui.webp', caption: 'The browser GUI on the same session, usable from any device on the network.' },
+    ],
+    code: [{ label: 'icarus', url: `${GH}/icarus` }],
+    related: ['mr-daw', 'hacking-daws', 'crowdforge', 'virtual-ai-jam'],
+  },
+
+  looptylooper: {
+    period: 'Ongoing',
+    summary:
+      'LooptyLooper is a live looper that runs in the browser, for any instrument or voice. Open the page and loop with a laptop mic and keyboard, then add an audio interface, a footswitch, or MIDI controllers when the music calls for them. The aim is low upfront cost and high creativity: four synced tracks and song parts to jump between, without buying a loop station.',
+    sections: [
+      {
+        heading: 'How it plays',
+        list: [
+          'A two-switch footswitch grammar: tap to record, play, and overdub; double-tap to stop; hold to undo. Every action fires on press, so timing stays tight.',
+          'The first loop sets the grid. Later loops snap to whole bars and stay phase-locked to the transport for as long as you play.',
+          'Song parts (verse, chorus, bridge) each have their own four tracks, and part changes wait for the next bar.',
+          'Bluetooth page-turner pedals work everywhere; MIDI footswitches work in Chrome, Edge, and Firefox.',
+          'Latency calibration shifts recordings by the measured round trip, so overdubs land where you heard them.',
+          'Under the hood, an AudioWorklet looper core draws on pooled memory, so hours-long sessions never allocate big buffers on the audio thread.',
+        ],
+      },
+    ],
+    tools: ['JavaScript', 'Web Audio (AudioWorklet)', 'Web MIDI', 'No dependencies'],
+    related: ['hacking-daws', 'jam-station', 'soljamm-apps'],
+  },
+
   'embodied-symbol-systems': {
     context: 'NSF DRK-12–funded study with Lei Yuan',
     summary:
@@ -802,7 +905,7 @@ export default {
       },
     ],
     links: [{ label: 'soljamm.com', url: 'https://soljamm.com' }],
-    related: ['jam-tabs', 'jam-station'],
+    related: ['soljamm-apps', 'jam-tabs', 'jam-station'],
   },
 
   // ===================================================================== Other research
