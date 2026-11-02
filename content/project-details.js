@@ -43,6 +43,12 @@ export default {
           'We ran a mixed-methods concert study comparing three interaction conditions: audio only, visual only, and combined audio-visual control.',
         ],
       },
+      {
+        heading: 'Live in Cannes',
+        paragraphs: [
+          'In October 2026 CrowdForge was performed live in Cannes. The audience joined from their phones by QR code and voted round by round on tempo, guitar tone, instrumentation, and the virtual dancers, while the projected mixed reality stage and the generative arranger responded in real time.',
+        ],
+      },
     ],
     findings: [
       'Observability, not the number of controls, is the primary driver of audience agency.',
@@ -57,6 +63,13 @@ export default {
       { file: 'projects/crowdforge-audience.webp', caption: 'Audience members voting from their phones during the concert.' },
       { file: 'projects/crowdforge-ui.webp', caption: '(A) The audience voting interface and (B) the projected aggregator showing the crowd’s collective choices.' },
       { file: 'projects/crowdforge-stage.webp', caption: 'The mixed reality stage with virtual musicians and dancers configured by the audience.' },
+      { file: 'projects/crowdforge-cannes-performers.webp', caption: 'Live in Cannes, October 2026: DJ and guitarist performing beneath the audience-configured mixed reality stage.' },
+      { file: 'projects/crowdforge-cannes-join.webp', caption: 'Cannes: the audience joins the performance by scanning a QR code.' },
+      { file: 'projects/crowdforge-cannes-voting.webp', caption: 'Cannes: the projected aggregator shows the crowd’s votes as they come in.' },
+      { file: 'projects/crowdforge-cannes-mr-stage.webp', caption: 'Cannes: virtual dancers on the projected mixed reality stage, chosen by audience vote.' },
+      { file: 'projects/crowdforge-cannes-audience.webp', caption: 'Cannes: the audience watching their choices play out on stage.' },
+      { file: 'projects/crowdforge-cannes-crowd.webp', caption: 'Cannes: a full house for the CrowdForge set.' },
+      { file: 'projects/crowdforge-cannes-soundcheck.webp', caption: 'Cannes: soundcheck with the mixed reality stage on the main screen.' },
     ],
     code: [{ label: 'AIMAP (AI-Mediated Audience Participation)', url: `${GH}/AIMAP` }],
     related: ['automatic-arrangement', 'mr-daw', 'rhythmic-conversations', 'stringesthesia'],
