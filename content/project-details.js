@@ -179,6 +179,27 @@ export default {
     related: ['hacking-daws', 'jam-station', 'soljamm-apps'],
   },
 
+  'knitting-with-unknown-trees': {
+    period: '2025',
+    context: 'Pictorial at ACM DIS 2025',
+    summary:
+      'A design research pictorial that explores other ways of knowing urban trees. Starting from a municipal tree dataset, we focused on the “unknown” trees, entries left unclassified through error, decay, or absence, and used knitting as a material inquiry into what fixed knowledge systems leave out.',
+    sections: [
+      {
+        heading: 'Approach',
+        paragraphs: [
+          'Urban trees are critical for ecosystems, yet they are increasingly shaped by technologies such as GIS, IoT sensors, and AI diagnostics that put their utility first. Knitting let us foreground nonhuman agencies and relational entanglements, and question normative design practices through a series of reflective shifts and compromises that aimed to amplify nonhuman participation.',
+        ],
+      },
+    ],
+    findings: [
+      'Insights into fostering alternative, relational engagements with urban ecologies.',
+      'Reflections on surfacing and working with agentic capacities, with guidance for other design researchers.',
+      'An argument for fragmented approaches that embrace complicity and complexity in more-than-human design.',
+    ],
+    related: ['smart-cities', 'tangible-musical-objects', 'string-sheath'],
+  },
+
   'embodied-symbol-systems': {
     context: 'NSF DRK-12–funded study with Lei Yuan',
     summary:
@@ -740,6 +761,60 @@ export default {
     related: ['how-late-is-too-late', 'limited-field-of-view', 'xr-jam'],
   },
 
+  dualstream: {
+    period: '2023',
+    context: 'ATLAS Institute, CU Boulder, with the University of Wyoming',
+    summary:
+      'DualStream is a mobile augmented reality system for remote communication. Using the front and rear cameras of an ordinary phone, it captures, streams, and displays spatial representations of people and their surroundings.',
+    sections: [
+      {
+        heading: 'Motivation',
+        paragraphs: [
+          'In-person interaction relies on our spatial perception of each other and of our surroundings. Video calls show real people but without spatial interaction. AR and VR experiences are immersive and spatial, but they usually replace real people and places with virtual characters and environments. DualStream bridges the two, centered on the device most people already carry.',
+        ],
+      },
+      {
+        heading: 'The system',
+        list: [
+          'The front-facing depth camera captures the user as a 3D hologram while the rear camera captures their surroundings, and the phone tracks the user’s position.',
+          'Users move between representations with different levels of visuospatial fidelity: holograms, spatial video feeds, and environment snapshots.',
+          'Environment snapshots create persistent shared spaces, so people can build blended spaces for collaboration.',
+        ],
+      },
+    ],
+    findings: [
+      'In a formative evaluation, users valued being able to interact spatially and to move between representations.',
+      'Participants could see DualStream fitting into their own remote communication practices in the near future.',
+      'The findings point to new opportunities for widely accessible spatial communication tools built around the mobile phone.',
+    ],
+    tools: ['Mobile AR', 'Depth cameras', 'Streaming'],
+    related: ['ar-drum-circle', 'how-late-is-too-late', 'augmented-personification'],
+  },
+
+  'augmented-personification': {
+    period: '2022',
+    context: 'CHI 2022 workshop paper, ATLAS Institute, CU Boulder',
+    summary:
+      'Intelligent music tools are often designed to replicate human creativity, yet we interact with them through screens and foot pedals. This workshop paper proposes personifying these tools as humanoid avatars in augmented reality, so that a looper or a generative model becomes a visible collaborator in the room.',
+    sections: [
+      {
+        heading: 'Two prototypes',
+        list: [
+          'Live looping: a foot pedal records and plays back loops as usual, but each loop is also performed by a virtual avatar in front of the musician. As more loops are added, more avatars appear, almost recreating the feeling of a drum circle.',
+          'Generative music: AI virtual musicians respond to the player’s MIDI input through Max, Python, and Magenta neural networks, and perform their parts as animated avatars.',
+        ],
+      },
+      {
+        heading: 'What’s next',
+        paragraphs: [
+          'We planned user tests on how musicians’ use of these tools changes when the virtual musicians are present, and more instruments such as keyboards and guitars. The work fed directly into the AI-driven virtual musicians of my later research.',
+        ],
+      },
+    ],
+    tools: ['Unity', 'Nreal Light AR headset', 'Max / Max for Live', 'Ableton Live', 'Python', 'Magenta'],
+    related: ['virtual-ai-jam', 'xr-jam', 'computer-supported-musical-improvisation'],
+  },
+
   'how-late-is-too-late': {
     period: '2021–2022',
     context: 'Funded by Ericsson Research',
@@ -934,6 +1009,14 @@ export default {
       'The paper weighs the cost/benefit of hand-written grammars, which is especially relevant for low-resource languages.',
     ],
     related: ['automatic-arrangement'],
+  },
+
+  'fifty-shades-of-gray-matter': {
+    period: '2015',
+    context: 'Annals Graphic Medicine, Annals of Internal Medicine',
+    summary:
+      'A two-and-a-half-minute animated short published in Annals Graphic Medicine, the journal section for original comics, animation, and video by people who provide or receive health care. Art by Sharon Rosenzweig; written, edited, and produced by Aaron Freeman; original music by me.',
+    related: ['hippocampal-connectivity-motor-learning', 'music-rehearsal-perceptual-span'],
   },
 
   foxp3: {

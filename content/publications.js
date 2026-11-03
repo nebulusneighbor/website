@@ -413,6 +413,7 @@ export default [
     volume: '162',
     issue: '9',
     pages: 'GM1',
+    doi: '10.7326/G14-0006',
   },
   {
     id: 'foxp3-male-fertility',

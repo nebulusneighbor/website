@@ -87,6 +87,13 @@ export const projects = [
     featured: true,
   },
   {
+    slug: 'knitting-with-unknown-trees',
+    title: 'Knitting with Unknown Trees',
+    description: 'A more-than-human design pictorial: knitting as a material inquiry into the “unknown” trees of a municipal tree dataset.',
+    pub: 'knitting-with-unknown-trees',
+    tags: ['hci', 'instruments'],
+  },
+  {
     slug: 'learning-to-read-music',
     title: 'How Do We Learn to Read Music?',
     description: 'Using psychological methods and eye-tracking to investigate the effectiveness of several popular approaches to music literacy.',
@@ -174,12 +181,28 @@ export const projects = [
     tags: ['xr', 'neuro'],
   },
   {
+    slug: 'augmented-personification',
+    title: 'Augmented Personification of Intelligent Music Tools',
+    description: 'Personifying loopers and generative music tools as humanoid avatars in augmented reality, for creativity and collaboration.',
+    image: 'augmented-personification.webp',
+    pub: 'augmented-personification',
+    tags: ['ai', 'xr'],
+  },
+  {
     slug: 'rhythmic-conversations',
     title: 'Rhythmic Conversations',
     description: 'Jamming with audience-controlled, improvising AI-driven drummers.',
     image: 'rhythmic-conversations.webp',
     pub: 'rhythmic-conversations',
     tags: ['ai'],
+  },
+  {
+    slug: 'dualstream',
+    title: 'DualStream',
+    description: 'Spatially sharing selves and surroundings in remote communication, using mobile devices and augmented reality.',
+    image: 'dualstream.webp',
+    pub: 'dualstream',
+    tags: ['xr', 'hci'],
   },
   {
     slug: 'holojam',
@@ -276,6 +299,13 @@ export const projects = [
     image: 'linguist-machine.webp',
     pub: 'linguist-vs-machine',
     tags: ['ai'],
+  },
+  {
+    slug: 'fifty-shades-of-gray-matter',
+    title: '50 Shades of Gray Matter',
+    description: 'Original music for an animated short in the Annals of Internal Medicine’s Graphic Medicine series.',
+    pub: 'fifty-shades-of-gray-matter',
+    tags: ['health'],
   },
   {
     slug: 'foxp3',
